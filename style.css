@@ -8387,3 +8387,64 @@ footer {
         color: transparent;
     }
 }
+
+
+/* ============================================================
+   MOBILE BACKGROUND — RICH TRICOLOR MESH
+   On phones the desktop's vw-based orbs end up small + offscreen,
+   leaving the page feeling flat. This adds a baked-in radial
+   tricolor mesh as a fixed background painted directly on html
+   so the atmosphere matches the desktop feel regardless of
+   viewport size or element position. Mobile-only.
+   ============================================================ */
+@media (max-width: 1024px) {
+    html {
+        background-color: var(--bg-primary);
+        background-image:
+            /* Saffron warm orb, top-left */
+            radial-gradient(circle at 15% 12%,
+                rgba(255, 153, 51, 0.32) 0%,
+                rgba(255, 153, 51, 0.16) 22%,
+                transparent 50%),
+            /* Blue cool orb, upper-right */
+            radial-gradient(circle at 88% 22%,
+                rgba(59, 130, 246, 0.32) 0%,
+                rgba(59, 130, 246, 0.18) 25%,
+                transparent 55%),
+            /* Green orb, lower-right */
+            radial-gradient(circle at 80% 88%,
+                rgba(19, 136, 8, 0.30) 0%,
+                rgba(19, 136, 8, 0.14) 25%,
+                transparent 55%),
+            /* White soft glow, mid-left for warmth */
+            radial-gradient(circle at 8% 70%,
+                rgba(255, 255, 255, 0.10) 0%,
+                rgba(255, 255, 255, 0.04) 25%,
+                transparent 55%),
+            /* Deep base */
+            linear-gradient(180deg, #050912 0%, #030712 100%);
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    /* Boost the existing animated orbs so they layer over the mesh */
+    .ambient-glow,
+    .ambient-glow-2 {
+        opacity: 0.85 !important;
+    }
+
+    /* Make the SVG motifs more visible against the new richer base */
+    .bg-shape {
+        opacity: 0.22 !important;
+    }
+}
+
+@media (max-width: 540px) {
+    /* On the smallest phones, scale the mesh slightly so it covers
+       the long viewport without feeling thin */
+    html {
+        background-size: 100% 130%;
+        background-position: center top;
+    }
+}
