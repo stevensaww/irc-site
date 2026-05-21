@@ -7965,6 +7965,17 @@ footer {
     z-index: 0;
 }
 
+.founder-id-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: relative;
+    z-index: 0;
+    filter: grayscale(0.15) contrast(1.05);
+}
+
 .founder-id-photo-badge {
     position: absolute;
     bottom: 8px;
