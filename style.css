@@ -7571,3 +7571,45 @@ footer {
         font-size: 1.4rem !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE: HERO PADDING + CARD CENTERING
+   Two targeted fixes only. Desktop untouched.
+   ============================================================ */
+
+/* 1. The hero inline style="padding-top:8rem" is too short for
+      the two-row mobile nav (~134px). Bump to 10rem (160px). */
+@media (max-width: 1024px) {
+    .hero.section-gloomy {
+        padding-top: 10rem !important;
+    }
+}
+
+/* 2. Co-founder card: the desktop translateY(-60px) + margin-bottom:-40px
+      pulls it off-center on mobile. Reset those only. */
+@media (max-width: 1024px) {
+    .hero-glass-dashboard-card.main-dashboard {
+        transform: none !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: calc(100% - 0px) !important;
+        max-width: 100% !important;
+    }
+
+    /* After unified card collapses, same reset */
+    .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
+        transform: none !important;
+        margin-top: 1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Unified card: lift the 500px height cap so content isn't clipped */
+    .hero-glass-dashboard-card.unified-top-card {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
