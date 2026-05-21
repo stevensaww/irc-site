@@ -7674,9 +7674,9 @@ footer {
     inset: 0;
     z-index: 9999;
     display: none;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     overflow-y: auto;
     padding: 2rem 1rem;
 }
@@ -7740,7 +7740,7 @@ footer {
     color: #ffffff;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.75rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.1em;
@@ -7754,93 +7754,132 @@ footer {
 }
 
 /* ===================================================
-   THE ID CARD ITSELF
+   THE ID CARD ITSELF — REFINED
    =================================================== */
 .founder-id-card {
-    background: linear-gradient(180deg, #f5f1e8 0%, #ede5d3 100%);
-    border-radius: 14px;
+    background: linear-gradient(180deg, #faf6ec 0%, #ede5d3 100%);
+    border-radius: 16px;
     padding: 0;
     margin: 0 auto;
     max-width: 380px;
     position: relative;
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.7),
-        0 0 0 2px rgba(0, 0, 0, 0.4),
-        inset 0 0 0 8px #0a0a0a;
+        0 40px 90px rgba(0, 0, 0, 0.75),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 10px #0a0a0a,
+        inset 0 0 0 11px rgba(255, 153, 51, 0.4);
     overflow: hidden;
     color: #0a0a0a;
 }
 
+/* Subtle paper texture */
+.founder-id-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+    background-size: 23px 23px, 31px 31px, 17px 17px;
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 1;
+}
+
 /* Lanyard string at top */
 .founder-id-lanyard {
-    width: 4px;
-    height: 40px;
+    width: 5px;
+    height: 44px;
     background: repeating-linear-gradient(
         45deg,
         #FF9933 0px, #FF9933 4px,
         #FFFFFF 4px, #FFFFFF 8px,
         #138808 8px, #138808 12px
     );
-    margin: -55px auto 0 auto;
+    margin: -56px auto -2px auto;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .founder-id-clip {
-    width: 32px;
-    height: 12px;
-    background: #888;
-    border-radius: 2px;
-    margin: 4px auto 0 auto;
+    width: 38px;
+    height: 14px;
+    background: linear-gradient(180deg, #b8b8b8 0%, #888 50%, #5a5a5a 100%);
+    border-radius: 3px;
+    margin: 0 auto;
     position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .founder-id-clip::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 16px;
-    height: 14px;
-    border: 2px solid #888;
+    width: 18px;
+    height: 16px;
+    border: 2.5px solid #888;
     border-bottom: none;
     border-radius: 50% 50% 0 0;
+    background: transparent;
 }
 
+/* Tricolor accent stripe at top of card body */
 .founder-id-inner {
-    padding: 1.5rem 1.25rem 1rem 1.25rem;
-    background: #f5f1e8;
+    padding: 1.5rem 1.4rem 1.1rem 1.4rem;
+    background: #faf6ec;
     margin-top: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.founder-id-inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 4px;
+    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    border-radius: 0 0 2px 2px;
 }
 
 /* Header band */
 .founder-id-header {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    padding-bottom: 0.85rem;
-    border-bottom: 1.5px dashed rgba(0, 0, 0, 0.15);
-    margin-bottom: 1rem;
+    gap: 0.95rem;
+    padding-bottom: 1rem;
+    border-bottom: 1.5px dashed rgba(0, 0, 0, 0.18);
+    margin-bottom: 1.1rem;
 }
 
 .founder-id-logo {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     overflow: hidden;
     background: linear-gradient(135deg, #FF9933, #FFFFFF, #138808);
-    padding: 2px;
+    padding: 2.5px;
     flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .founder-id-logo img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #f5f1e8;
+    background: #faf6ec;
     display: block;
+    object-fit: cover;
 }
 
 .founder-id-brand {
@@ -7851,10 +7890,10 @@ footer {
 
 .founder-id-brand-name {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 900;
     line-height: 1.05;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     display: flex;
     flex-direction: column;
 }
@@ -7865,12 +7904,12 @@ footer {
 
 .founder-id-tagline {
     font-family: var(--font-accent);
-    font-size: 0.55rem;
+    font-size: 0.56rem;
     font-weight: 700;
     color: #555;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 
 .founder-id-tagline .tag-orange { color: #d97706; }
@@ -7881,7 +7920,8 @@ footer {
     display: flex;
     gap: 1rem;
     align-items: stretch;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
+    position: relative;
 }
 
 .founder-id-photo {
@@ -7889,61 +7929,85 @@ footer {
 }
 
 .founder-id-photo-silhouette {
-    width: 100px;
-    height: 120px;
-    background: #2a2a2a;
-    border: 2px solid #1a1a1a;
+    width: 102px;
+    height: 124px;
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 2.5px solid #0a0a0a;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle scanlines/photo texture */
+.founder-id-photo-silhouette::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .founder-id-photo-silhouette svg {
     width: 100%;
     height: 100%;
     display: block;
+    position: relative;
+    z-index: 0;
 }
 
 .founder-id-photo-badge {
     position: absolute;
-    bottom: 6px;
-    right: 6px;
-    width: 22px;
-    height: 22px;
+    bottom: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    background: #f5f1e8;
-    border: 1px solid #FF9933;
-    padding: 1px;
+    background: #faf6ec;
+    border: 1.5px solid #FF9933;
+    padding: 1.5px;
     overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .founder-id-photo-badge img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .founder-id-details {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
+    gap: 0.7rem;
     text-align: left;
-    padding: 0.25rem 0;
+    padding: 0.1rem 0;
 }
 
 .founder-id-field {
     display: flex;
     flex-direction: column;
-    gap: 0.05rem;
+    gap: 0.1rem;
 }
 
 .founder-id-field-label {
     font-family: var(--font-accent);
     font-size: 0.6rem;
     font-weight: 700;
-    color: #666;
-    letter-spacing: 0.1em;
+    color: #777;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
@@ -7954,36 +8018,61 @@ footer {
 }
 
 .founder-id-number {
-    font-size: 1.7rem;
+    font-size: 1.85rem;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    color: #0a0a0a;
 }
 
 .founder-id-status {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     color: #d97706;
     letter-spacing: 0.02em;
 }
 
 .founder-id-role {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     color: #138808;
     letter-spacing: 0.02em;
 }
 
-/* Barcode */
+/* Decorative seal/stamp — top-right of body */
+.founder-id-body::after {
+    content: "VERIFIED";
+    position: absolute;
+    top: -4px;
+    right: -2px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid rgba(217, 119, 6, 0.5);
+    border-radius: 50%;
+    color: rgba(217, 119, 6, 0.65);
+    font-family: var(--font-accent);
+    font-size: 0.5rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-15deg);
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Barcode — more authentic, irregular bars */
 .founder-id-barcode {
     background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 3px;
-    padding: 0.5rem 0.6rem;
-    margin-bottom: 0.6rem;
+    padding: 0.55rem 0.65rem 0.35rem 0.65rem;
+    margin-bottom: 0.7rem;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .barcode-bars {
     display: flex;
     gap: 1px;
-    height: 30px;
+    height: 32px;
     align-items: stretch;
 }
 
@@ -7992,75 +8081,81 @@ footer {
     background: #0a0a0a;
 }
 
-.barcode-bars span:nth-child(2n) {
-    flex: 0.4;
-    background: transparent;
-}
+/* Pseudo-randomized bar widths via varied nth-child rules */
+.barcode-bars span:nth-child(2n)  { flex: 0.4; background: transparent; }
+.barcode-bars span:nth-child(3n)  { flex: 0.7; }
+.barcode-bars span:nth-child(4n)  { flex: 1.3; }
+.barcode-bars span:nth-child(5n)  { flex: 1.8; }
+.barcode-bars span:nth-child(7n)  { flex: 0.3; background: transparent; }
+.barcode-bars span:nth-child(11n) { flex: 2.2; }
+.barcode-bars span:nth-child(13n) { flex: 0.5; background: transparent; }
 
-.barcode-bars span:nth-child(3n) {
-    flex: 0.7;
-}
-
-.barcode-bars span:nth-child(5n) {
-    flex: 1.6;
-}
-
-.barcode-bars span:nth-child(7n) {
-    flex: 0.3;
-    background: transparent;
-}
-
-/* Issued To */
+/* Issued To — more visual weight */
 .founder-id-issued {
     font-family: var(--font-accent);
     font-size: 0.7rem;
     font-weight: 700;
     color: #1a1a1a;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-align: left;
-    padding: 0.2rem 0;
+    padding: 0.3rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-transform: uppercase;
 }
 
 .founder-id-issued span {
     color: #d97706;
     font-weight: 800;
+    letter-spacing: 0.04em;
 }
 
 /* Bottom badges row */
 .founder-id-badges {
-    background: #1a1a1a;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
     color: #f5f1e8;
-    padding: 0.65rem 0.75rem;
+    padding: 0.85rem 0.9rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    gap: 0.4rem;
     border-top: 4px solid #0a0a0a;
+    position: relative;
+    z-index: 2;
 }
 
 .founder-id-badge {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.45rem;
     text-align: left;
+    padding: 0 0.15rem;
 }
 
 .founder-id-badge:not(:last-child) {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding-right: 0.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    padding-right: 0.55rem;
 }
 
 .badge-icon {
-    font-size: 0.85rem;
+    font-size: 1rem;
     flex-shrink: 0;
+    line-height: 1;
+    color: #FF9933;
+    font-weight: 900;
+    font-family: var(--font-display);
 }
+
+/* Specific icon colors per badge */
+.founder-id-badge:nth-child(1) .badge-icon { color: #FF9933; font-size: 1.3rem; }
+.founder-id-badge:nth-child(2) .badge-icon { color: #138808; }
+.founder-id-badge:nth-child(3) .badge-icon { color: #fff; font-size: 0.95rem; }
 
 .badge-label {
     font-family: var(--font-accent);
     font-size: 0.5rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: #f5f1e8;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
 }
 
 /* ===================================================
@@ -8091,7 +8186,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.7rem 0.8rem;
+    padding: 0.75rem 0.8rem;
     border-radius: 10px;
     font-family: var(--font-accent);
     font-size: 0.78rem;
