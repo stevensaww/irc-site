@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Rational Congress | Done Waiting.</title>
-    <meta name="description" content="BJP broke it. INC watched. 10 million of us write our own future. Join the Indian Rational Congress. Same hand. Different generation. 🤟">
+    <meta name="description" content="Indian Rational Congress — built by the youth, for India's future. Become a co-founder. 🤟">
+
+    <!-- Open Graph + Twitter card (WhatsApp/X/Instagram all read these) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Indian Rational Congress — Built by the Youth.">
+    <meta property="og:description" content="Not a fanbase. A founding generation. Become a co-founder. 🤟">
+    <meta property="og:image" content="https://irc-site-final.pages.dev/assets/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Indian Rational Congress — Built by the Youth.">
+    <meta name="twitter:description" content="Not a fanbase. A founding generation. Become a co-founder. 🤟">
+    <meta name="twitter:image" content="https://irc-site-final.pages.dev/assets/logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="assets/logo_hand.png">
@@ -566,6 +579,9 @@
             <div class="success-share-row">
                 <p class="success-share-label">Share your founder ID. Bring 3 friends. 🤟</p>
                 <div class="success-share-buttons">
+                    <button class="share-btn share-btn-native" id="shareNative" hidden>
+                        <span>📤 Share card with image</span>
+                    </button>
                     <a href="#" class="share-btn share-btn-whatsapp" id="shareWhatsApp" target="_blank" rel="noopener">
                         <span>WhatsApp</span>
                     </a>
@@ -706,14 +722,11 @@
         function updateMilestoneStates(count) {
             milestoneNodes.forEach((node, idx) => {
                 const threshold = milestoneThresholds[idx];
-                const prev = idx > 0 ? milestoneThresholds[idx - 1] : 0;
                 node.classList.remove('active', 'pulse', 'locked');
                 if (count >= threshold) {
                     node.classList.add('active'); // unlocked & complete
-                } else if (count > prev) {
-                    node.classList.add('pulse');  // current target (in progress)
                 } else {
-                    node.classList.add('locked');
+                    node.classList.add('locked'); // not yet reached
                 }
             });
         }
@@ -883,16 +896,28 @@
                 document.getElementById('founderIdIssuedTo').textContent =
                     name.toUpperCase() + ' · ' + city.toUpperCase();
 
-                // Build share URL + copy
+                // Build share URL + multi-line shareable text
                 const siteUrl = window.location.origin + window.location.pathname.replace(/index\.html$/, '');
-                const shareText = `I just became Founder #${idStr} of the Indian Rational Congress 🤟 The future doesn't wait. Neither do we. Join → `;
                 const shareUrl = siteUrl;
 
+                // WhatsApp gets a multi-line, scannable message
+                const whatsappText =
+                    `I just became Founder #${idStr} of the Indian Rational Congress 🤟\n\n` +
+                    `Built by the youth. For India's future.\n` +
+                    `The future doesn't wait. Neither do we.\n\n` +
+                    `Join → ${shareUrl}`;
+
+                // Twitter is one block (it auto-renders \n as line breaks too)
+                const twitterText =
+                    `I just became Founder #${idStr} of the Indian Rational Congress 🤟\n\n` +
+                    `Built by the youth. For India's future.\n` +
+                    `The future doesn't wait. Neither do we.`;
+
                 document.getElementById('shareWhatsApp').href =
-                    'https://wa.me/?text=' + encodeURIComponent(shareText + shareUrl);
+                    'https://wa.me/?text=' + encodeURIComponent(whatsappText);
                 document.getElementById('shareTwitter').href =
                     'https://twitter.com/intent/tweet?text=' +
-                    encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+                    encodeURIComponent(twitterText) + '&url=' + encodeURIComponent(shareUrl);
 
                 document.getElementById('successOverlay').classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -940,7 +965,11 @@
                 copyBtn.addEventListener('click', () => {
                     const id = document.getElementById('founderIdNumber').textContent;
                     const url = window.location.origin + window.location.pathname.replace(/index\.html$/, '');
-                    const text = `I just became Founder ${id} of the Indian Rational Congress 🤟 Join → ${url}`;
+                    const text =
+                        `I just became Founder ${id} of the Indian Rational Congress 🤟\n\n` +
+                        `Built by the youth. For India's future.\n` +
+                        `The future doesn't wait. Neither do we.\n\n` +
+                        `Join → ${url}`;
                     if (navigator.clipboard) {
                         navigator.clipboard.writeText(text).then(() => {
                             const original = copyBtn.querySelector('span').textContent;

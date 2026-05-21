@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Journey | Indian Rational Congress</title>
-    <meta name="description" content="10 million signatures unlocks India's first youth-written constitution. View our vertical timeline roadmap and crowd-sourced interactive map.">
+    <meta name="description" content="Indian Rational Congress — built by the youth, for India's future. Become a co-founder. 🤟">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="assets/logo_hand.png">
@@ -258,14 +258,10 @@
 
                 cards.forEach((card, idx) => {
                     const threshold = thresholds[idx];
-                    const prev = idx > 0 ? thresholds[idx - 1] : 0;
                     card.classList.remove('unlocked', 'active', 'locked');
                     if (count >= threshold) {
                         card.classList.add('unlocked');
                         setBadge(card, '✓ UNLOCKED', null);
-                    } else if (count > prev) {
-                        card.classList.add('active');
-                        setBadge(card, '⚡ ACTIVE', 'pulse');
                     } else {
                         card.classList.add('locked');
                         setBadge(card, '🔒 LOCKED', null);
