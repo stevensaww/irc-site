@@ -258,12 +258,12 @@
 
                 cards.forEach((card, idx) => {
                     const threshold = thresholds[idx];
-                    const prev = thresholds[idx - 1] !== undefined ? thresholds[idx - 1] : 0;
+                    const prev = idx > 0 ? thresholds[idx - 1] : 0;
                     card.classList.remove('unlocked', 'active', 'locked');
                     if (count >= threshold) {
                         card.classList.add('unlocked');
                         setBadge(card, '✓ UNLOCKED', null);
-                    } else if (count >= prev) {
+                    } else if (count > prev) {
                         card.classList.add('active');
                         setBadge(card, '⚡ ACTIVE', 'pulse');
                     } else {

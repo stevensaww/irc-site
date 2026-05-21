@@ -603,12 +603,12 @@
         function updateMilestoneStates(count) {
             milestoneNodes.forEach((node, idx) => {
                 const threshold = milestoneThresholds[idx];
-                const next = milestoneThresholds[idx - 1] !== undefined ? milestoneThresholds[idx - 1] : 0;
+                const prev = idx > 0 ? milestoneThresholds[idx - 1] : 0;
                 node.classList.remove('active', 'pulse', 'locked');
                 if (count >= threshold) {
                     node.classList.add('active'); // unlocked & complete
-                } else if (count >= next) {
-                    node.classList.add('pulse');  // current target
+                } else if (count > prev) {
+                    node.classList.add('pulse');  // current target (in progress)
                 } else {
                     node.classList.add('locked');
                 }
