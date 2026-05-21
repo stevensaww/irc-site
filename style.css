@@ -7640,3 +7640,14 @@ footer {
         display: none !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE: SCROLL TARGET OFFSET FOR #join
+   Two-row nav on mobile is ~150px tall vs ~110px desktop.
+   ============================================================ */
+@media (max-width: 1024px) {
+    #join {
+        scroll-margin-top: 160px;
+    }
+}
