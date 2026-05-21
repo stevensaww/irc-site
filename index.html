@@ -553,10 +553,13 @@
 
         function initOdometer(initialNum) {
             rollingTicker.innerHTML = '';
-            const numStr = initialNum.toString();
+            // Always render 7 digit boxes, padded with leading zeros.
+            // Commas live between digits 1|2 and 4|5 → "0,000,000"
+            let numStr = initialNum.toString();
+            while (numStr.length < 7) numStr = '0' + numStr;
             const frag = document.createDocumentFragment();
 
-            for (let i = 0; i < numStr.length; i++) {
+            for (let i = 0; i < 7; i++) {
                 if (i === 1 || i === 4) {
                     const comma = document.createElement('span');
                     comma.className = 'ticker-comma ' + (i === 1 ? 'comma-orange' : 'comma-green');
