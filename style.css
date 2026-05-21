@@ -7651,3 +7651,11 @@ footer {
         scroll-margin-top: 220px;
     }
 }
+
+
+/* Mobile: scroll target for the form card itself */
+@media (max-width: 1024px) {
+    #join-form {
+        scroll-margin-top: 170px;
+    }
+}

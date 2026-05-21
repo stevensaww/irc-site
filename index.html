@@ -430,7 +430,7 @@
                 </div>
 
                 <!-- Signup Card -->
-                <div class="glass-card signup-form-card">
+                <div class="glass-card signup-form-card" id="join-form">
                     <div class="form-card-header">
                         <h3 class="form-card-title">Claim your spot 🤟</h3>
                         <p class="form-card-sub">30 seconds. No spam. No uncle vibes.</p>
@@ -804,6 +804,20 @@
             document.getElementById('successOverlay').classList.remove('active');
             document.getElementById('signupForm').reset();
         }
+
+        // On mobile, "Join" buttons should scroll to the form card,
+        // not the top of the section (which shows the "uncles" text first).
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href="#join"]');
+            if (!link) return;
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                const formCard = document.getElementById('join-form');
+                if (formCard) {
+                    formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
     </script>
 </body>
 </html>
