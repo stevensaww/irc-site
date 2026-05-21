@@ -7571,3 +7571,57 @@ footer {
         font-size: 1.4rem !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE FIX — HERO CARDS NOT CUT OFF, NOT OVERFLOWING
+   Card widths now use 100% relative to the hero's own
+   horizontal padding (no more calc(100vw - …)).
+   Hero padding-top accounts for the taller two-row nav.
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    /* Hero section: wider clearance for the now-taller wrapped header
+       and matching side padding so the cards inside fit neatly. */
+    .hero {
+        padding: 11rem 1rem 3rem 1rem !important;
+    }
+
+    /* "One Party Broke" card: simple 100% within the hero's padding */
+    .hero-glass-dashboard-card.unified-top-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto 2.5rem auto !important;
+        padding: 1.5rem 1.25rem !important;
+        transform: none !important;
+    }
+
+    /* Co-founder card: also full width within hero, no transforms */
+    .hero-glass-dashboard-card.main-dashboard {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 4.5rem 1.25rem 2rem 1.25rem !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero {
+        padding: 12rem 0.75rem 2.5rem 0.75rem !important;
+    }
+    .hero-glass-dashboard-card.unified-top-card {
+        padding: 1.25rem 1rem !important;
+    }
+    .hero-glass-dashboard-card.main-dashboard {
+        padding: 4rem 1rem 1.5rem 1rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        padding: 12rem 0.6rem 2rem 0.6rem !important;
+    }
+}
