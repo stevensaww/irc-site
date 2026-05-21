@@ -1,7 +1,9 @@
+.wrangler/
 .DS_Store
 *.log
 node_modules/
 .env
 .env.local
+assets/.DS_Store
 .vscode/
 .idea/

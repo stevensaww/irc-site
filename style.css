@@ -7223,3 +7223,106 @@ footer {
         overflow-x: hidden;
     }
 }
+
+
+/* ============================================================
+   MOBILE NAV ALIGNMENT FIX
+   Earlier rules force the header into a 3-column grid (with
+   !important) which squashes everything on phones. We undo
+   that ONLY on small screens and use a clean flex layout.
+   Desktop preview is untouched.
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .header-main-nav {
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        padding: 0.75rem 1rem !important;
+    }
+    .header-branding {
+        justify-self: auto !important;
+        flex: 0 1 auto !important;
+        min-width: 0;
+    }
+    .nav-pill-container {
+        justify-self: auto !important;
+        flex: 1 1 100% !important;
+        order: 3 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .join-btn-header {
+        justify-self: auto !important;
+        flex: 0 0 auto !important;
+        order: 2 !important;
+    }
+    .nav-pill-container .nav-bar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.15rem;
+    }
+    /* Push hero down so the now-taller wrapped header doesn't
+       overlap content. Same content position visually as before. */
+    .hero,
+    .journey-hero,
+    .about-hero,
+    .manifesto-hero {
+        padding-top: 9rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-main-nav {
+        padding: 0.6rem 0.75rem !important;
+        gap: 0.5rem !important;
+    }
+    .header-branding {
+        gap: 0.45rem;
+    }
+    .brand-title {
+        font-size: 0.9rem;
+        letter-spacing: 0;
+    }
+    .logo-with-shield {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 2px !important;
+    }
+    .nav-link {
+        font-size: 0.65rem !important;
+        padding: 0.35rem 0.55rem !important;
+    }
+    .join-btn-header {
+        font-size: 0.6rem !important;
+        padding: 0.5rem 0.75rem !important;
+    }
+    .join-btn-header span {
+        display: none; /* hide the › chevron on tiny screens */
+    }
+    /* Slightly more top padding for the now-double-row header */
+    .hero,
+    .journey-hero,
+    .about-hero,
+    .manifesto-hero {
+        padding-top: 10rem !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand-title {
+        font-size: 0.78rem;
+    }
+    .nav-link {
+        font-size: 0.6rem !important;
+        padding: 0.3rem 0.4rem !important;
+    }
+    .nav-link span,
+    .nav-link {
+        letter-spacing: 0;
+    }
+}
