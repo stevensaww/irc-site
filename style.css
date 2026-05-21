@@ -8297,3 +8297,93 @@ footer {
     background-clip: text !important;
     -webkit-background-clip: text !important;
 }
+
+
+/* ============================================================
+   ============================================================
+   FIREFOX iOS / WEBKIT COLOR FIXES
+   Root cause: text-shadow + transparent text-fill renders the
+   shadow color as a flat fill on older WebKit. Strip text-shadow
+   from gradient-text elements only on small screens (where
+   Firefox iOS users actually visit). Desktop preview untouched.
+   ============================================================
+   ============================================================ */
+
+/* Tell iOS we're a dark site so it doesn't try to color-correct */
+:root { color-scheme: dark; }
+
+@media (max-width: 1024px) {
+    /* Strip text-shadow from gradient-text elements — preserves
+       the gradient, kills the shadow that confuses WebKit. */
+    .glow-text,
+    .glow-text-saffron,
+    .gradient-blue-text,
+    .gradient-orange-text,
+    .hero-title-main div:first-child,
+    .hero-title-main div:last-child,
+    .tricolour-text,
+    .success-modal-headline-accent {
+        text-shadow: none !important;
+    }
+}
+
+
+/* ============================================================
+   MOBILE BACKGROUND — match desktop ambient density
+   On phones, vw-sized orbs become tiny. Force a larger
+   minimum size so the warm tricolor mesh covers the screen.
+   ============================================================ */
+@media (max-width: 1024px) {
+    .ambient-glow {
+        width: 140vw !important;
+        height: 140vw !important;
+        min-width: 600px;
+        min-height: 600px;
+        top: -20vw !important;
+        left: -20vw !important;
+    }
+    .ambient-glow-2 {
+        width: 130vw !important;
+        height: 130vw !important;
+        min-width: 550px;
+        min-height: 550px;
+        bottom: -20vw !important;
+        right: -25vw !important;
+    }
+
+    /* Background motif shapes: scale up minimum so they're visible */
+    .shape-1, .shape-2, .shape-3, .shape-4 {
+        min-width: 180px;
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 540px) {
+    .ambient-glow {
+        opacity: 0.7 !important;
+    }
+    .ambient-glow-2 {
+        opacity: 0.65 !important;
+    }
+}
+
+
+/* Bulletproof gradient text on WebKit-based engines (Safari, Firefox iOS, Chrome iOS).
+   Forces the element to be a containing block so the gradient anchors correctly
+   and the text-fill-color stays transparent across reflows. Mobile-only. */
+@media (max-width: 1024px) {
+    .glow-text,
+    .glow-text-saffron,
+    .gradient-blue-text,
+    .gradient-orange-text,
+    .tricolour-text,
+    .success-modal-headline-accent,
+    .hero-title-main div:first-child,
+    .hero-title-main div:last-child {
+        display: inline-block;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent;
+    }
+}
