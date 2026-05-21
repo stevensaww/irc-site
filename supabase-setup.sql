@@ -88,3 +88,52 @@ on public.signups
 for select
 to anon
 using (false);
+
+
+-- ============================================================
+-- REPLACE the silly SELECT policy with a proper RPC
+-- This is the production approach: a security-definer function
+-- inserts a signup and returns the new founder ID atomically,
+-- bypassing RLS for this one trusted operation.
+-- ============================================================
+
+drop policy if exists "anon cannot select rows" on public.signups;
+
+create or replace function public.submit_signup(
+    p_name text,
+    p_city text,
+    p_fix_first text,
+    p_contribution text,
+    p_whatsapp_optin boolean default false
+)
+returns bigint
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+    new_id bigint;
+begin
+    if char_length(p_name) < 1 or char_length(p_name) > 80 then
+        raise exception 'Invalid name';
+    end if;
+    if char_length(p_city) < 1 or char_length(p_city) > 80 then
+        raise exception 'Invalid city';
+    end if;
+    if char_length(p_fix_first) < 1 or char_length(p_fix_first) > 200 then
+        raise exception 'Invalid fix_first';
+    end if;
+    if char_length(p_contribution) < 1 or char_length(p_contribution) > 60 then
+        raise exception 'Invalid contribution';
+    end if;
+
+    insert into public.signups (name, city, fix_first, contribution, whatsapp_optin)
+    values (p_name, p_city, p_fix_first, p_contribution, p_whatsapp_optin)
+    returning id into new_id;
+
+    return new_id;
+end;
+$$;
+
+grant execute on function public.submit_signup(text, text, text, text, boolean) to anon;
+grant execute on function public.submit_signup(text, text, text, text, boolean) to authenticated;

@@ -76,13 +76,17 @@
     async submitSignup(payload) {
       const client = getClient();
       if (!client) throw new Error('Supabase not configured');
-      const { data, error } = await client
-        .from('signups')
-        .insert([payload])
-        .select('id')
-        .single();
+      // Use the security-definer RPC so the insert always succeeds and
+      // we always get the new founder ID back, regardless of RLS state.
+      const { data, error } = await client.rpc('submit_signup', {
+        p_name: payload.name,
+        p_city: payload.city,
+        p_fix_first: payload.fix_first,
+        p_contribution: payload.contribution,
+        p_whatsapp_optin: payload.whatsapp_optin || false,
+      });
       if (error) throw error;
-      return data ? data.id : null;
+      return data; // bigint id
     },
 
     /**
