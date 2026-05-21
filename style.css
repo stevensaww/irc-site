@@ -8390,61 +8390,147 @@ footer {
 
 
 /* ============================================================
-   MOBILE BACKGROUND — RICH TRICOLOR MESH
-   On phones the desktop's vw-based orbs end up small + offscreen,
-   leaving the page feeling flat. This adds a baked-in radial
-   tricolor mesh as a fixed background painted directly on html
-   so the atmosphere matches the desktop feel regardless of
-   viewport size or element position. Mobile-only.
+   MOBILE BACKGROUND — RICH ATMOSPHERIC LAYERED MESH
+   Mobile screens are tall and narrow. Desktop's wide-canvas
+   orbs don't translate. Instead we create a multi-layer
+   atmospheric background tuned for portrait viewports:
+     1. Vivid tricolor radial gradients on a fixed pseudo-layer
+     2. The existing animated orbs scaled up dramatically
+     3. The SVG motifs at richer opacity
+     4. Subtle animated breathing on the layer for life
    ============================================================ */
 @media (max-width: 1024px) {
+
+    /* Reset html background — we'll handle it through body::before */
     html {
-        background-color: var(--bg-primary);
-        background-image:
-            /* Saffron warm orb, top-left */
-            radial-gradient(circle at 15% 12%,
-                rgba(255, 153, 51, 0.32) 0%,
-                rgba(255, 153, 51, 0.16) 22%,
-                transparent 50%),
-            /* Blue cool orb, upper-right */
-            radial-gradient(circle at 88% 22%,
-                rgba(59, 130, 246, 0.32) 0%,
-                rgba(59, 130, 246, 0.18) 25%,
-                transparent 55%),
-            /* Green orb, lower-right */
-            radial-gradient(circle at 80% 88%,
-                rgba(19, 136, 8, 0.30) 0%,
-                rgba(19, 136, 8, 0.14) 25%,
-                transparent 55%),
-            /* White soft glow, mid-left for warmth */
-            radial-gradient(circle at 8% 70%,
+        background-color: #030712 !important;
+        background-image: none !important;
+    }
+
+    /* The atmospheric layer: a rich, multi-radial mesh tuned for
+       portrait viewports. Lives behind everything. */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+        pointer-events: none;
+        background:
+            /* Saffron — top, dominant warm glow */
+            radial-gradient(ellipse 80% 50% at 20% 8%,
+                rgba(255, 153, 51, 0.55) 0%,
+                rgba(255, 153, 51, 0.25) 25%,
+                rgba(255, 153, 51, 0.08) 50%,
+                transparent 75%),
+            /* Blue — upper right, electric */
+            radial-gradient(ellipse 70% 45% at 95% 18%,
+                rgba(59, 130, 246, 0.55) 0%,
+                rgba(59, 130, 246, 0.28) 25%,
+                rgba(59, 130, 246, 0.1) 50%,
+                transparent 75%),
+            /* Green — lower right, organic */
+            radial-gradient(ellipse 75% 50% at 90% 72%,
+                rgba(19, 136, 8, 0.50) 0%,
+                rgba(19, 136, 8, 0.25) 25%,
+                rgba(19, 136, 8, 0.08) 50%,
+                transparent 75%),
+            /* Deep blue — bottom, anchor */
+            radial-gradient(ellipse 90% 60% at 30% 95%,
+                rgba(37, 99, 235, 0.40) 0%,
+                rgba(37, 99, 235, 0.18) 28%,
+                transparent 60%),
+            /* White soft accent — mid-left */
+            radial-gradient(circle at 5% 50%,
                 rgba(255, 255, 255, 0.10) 0%,
-                rgba(255, 255, 255, 0.04) 25%,
-                transparent 55%),
-            /* Deep base */
-            linear-gradient(180deg, #050912 0%, #030712 100%);
-        background-attachment: fixed;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
+                rgba(255, 255, 255, 0.03) 30%,
+                transparent 60%),
+            /* Base */
+            #030712;
+        filter: blur(40px) saturate(1.15);
+        animation: mobileMeshBreath 18s ease-in-out infinite alternate;
     }
 
-    /* Boost the existing animated orbs so they layer over the mesh */
-    .ambient-glow,
+    /* A second layer for depth — softer, larger orbs that drift slowly */
+    body::after {
+        content: "";
+        position: fixed;
+        inset: -20%;
+        z-index: -9;
+        pointer-events: none;
+        background:
+            radial-gradient(ellipse 60% 40% at 80% 30%,
+                rgba(236, 72, 153, 0.18) 0%,
+                transparent 60%),
+            radial-gradient(ellipse 50% 50% at 25% 65%,
+                rgba(139, 92, 246, 0.18) 0%,
+                transparent 55%);
+        filter: blur(60px);
+        animation: mobileMeshDrift 32s ease-in-out infinite alternate;
+        opacity: 0.7;
+    }
+
+    @keyframes mobileMeshBreath {
+        0% {
+            transform: scale(1) translate(0, 0);
+            filter: blur(40px) saturate(1.15);
+        }
+        100% {
+            transform: scale(1.08) translate(-2%, -3%);
+            filter: blur(50px) saturate(1.25);
+        }
+    }
+
+    @keyframes mobileMeshDrift {
+        0%   { transform: translate(0, 0) scale(1); }
+        50%  { transform: translate(3%, -2%) scale(1.05); }
+        100% { transform: translate(-3%, 2%) scale(1); }
+    }
+
+    /* Existing animated orbs: scale them up massively on mobile so they
+       contribute real atmosphere instead of being tiny dots */
+    .ambient-glow {
+        width: 180vw !important;
+        height: 180vw !important;
+        min-width: 800px;
+        min-height: 800px;
+        top: -40vw !important;
+        left: -40vw !important;
+        opacity: 0.55 !important;
+        filter: blur(80px) !important;
+    }
     .ambient-glow-2 {
-        opacity: 0.85 !important;
+        width: 170vw !important;
+        height: 170vw !important;
+        min-width: 750px;
+        min-height: 750px;
+        bottom: -40vw !important;
+        right: -40vw !important;
+        opacity: 0.55 !important;
+        filter: blur(85px) !important;
     }
 
-    /* Make the SVG motifs more visible against the new richer base */
+    /* SVG cultural motifs — more visible on the now-richer base */
     .bg-shape {
-        opacity: 0.22 !important;
+        opacity: 0.18 !important;
+    }
+    .shape-1, .shape-2, .shape-3, .shape-4 {
+        min-width: 200px;
+        min-height: 200px;
+    }
+
+    /* Cyber grid: barely visible on mobile to add subtle depth */
+    .cyber-grid {
+        opacity: 0.5 !important;
     }
 }
 
 @media (max-width: 540px) {
-    /* On the smallest phones, scale the mesh slightly so it covers
-       the long viewport without feeling thin */
-    html {
-        background-size: 100% 130%;
-        background-position: center top;
+    /* On compact phones, slightly more saturated orbs because tiny screens
+       wash blur out */
+    body::before {
+        filter: blur(35px) saturate(1.3) !important;
+    }
+    body::after {
+        opacity: 0.85 !important;
     }
 }
