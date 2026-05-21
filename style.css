@@ -8276,3 +8276,24 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+
+/* ============================================================
+   FIREFOX iOS COMPAT — gradient-text background-clip
+   Some early rules only set -webkit-background-clip without
+   the unprefixed property. Firefox iOS doesn't pick up the
+   webkit-only version reliably, so it shows a flat color or
+   weird hue. Adding the standard property below changes
+   nothing on Safari/Chrome (they keep using the prefix).
+   ============================================================ */
+.glow-text,
+.glow-text-saffron,
+.gradient-blue-text,
+.gradient-orange-text,
+.hero-title-main div:first-child,
+.hero-title-main div:last-child,
+.success-modal-headline-accent,
+.tricolour-text {
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+}
