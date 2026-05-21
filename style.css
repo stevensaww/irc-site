@@ -8534,3 +8534,43 @@ footer {
         opacity: 0.85 !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE: KEEP NAV LOGO PERFECTLY ROUND
+   Flex layout was squashing the logo container's aspect ratio
+   when the brand title got long. Force it to a fixed square.
+   ============================================================ */
+@media (max-width: 1024px) {
+    .header-branding .logo-with-shield {
+        flex: 0 0 auto !important;
+        aspect-ratio: 1 / 1 !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        min-height: 42px !important;
+        border-radius: 50% !important;
+        overflow: hidden;
+    }
+    .header-branding .logo-with-shield .logo-img {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 540px) {
+    .header-branding .logo-with-shield,
+    .header-branding .logo-with-shield * {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+    }
+    .header-branding .logo-with-shield .logo-img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
