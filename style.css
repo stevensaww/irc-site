@@ -7326,3 +7326,248 @@ footer {
         letter-spacing: 0;
     }
 }
+
+
+/* ============================================================
+   ============================================================
+   MOBILE REFINEMENT — TOP NAV + CO-FOUNDER CARD
+   Final pass. Desktop (>1024px) untouched.
+   ============================================================
+   ============================================================ */
+
+/* ---------- TOP NAV: tablet & phone layout ---------- */
+@media (max-width: 1024px) {
+    /* Reset earlier conflicts and lay out clearly:
+       Row 1:  [logo + title]              [Join btn]
+       Row 2:  [centered nav pill]                       */
+    .header-main-nav {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        grid-template-areas:
+            "brand   join"
+            "nav     nav" !important;
+        gap: 0.6rem 0.75rem !important;
+        padding: 0.75rem 1rem !important;
+        align-items: center !important;
+    }
+    .header-branding {
+        grid-area: brand !important;
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        gap: 0.6rem !important;
+    }
+    .nav-pill-container {
+        grid-area: nav !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0.25rem 0.35rem !important;
+    }
+    .join-btn-header {
+        grid-area: join !important;
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+    }
+    .nav-pill-container .nav-bar {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 0.1rem !important;
+    }
+
+    /* Branding text: prevent overflow, allow ellipsis on subtitle */
+    .branding-text {
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+    .brand-title {
+        font-size: 1rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        letter-spacing: 0 !important;
+    }
+    .brand-subtitle {
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        letter-spacing: 0 !important;
+    }
+}
+
+/* ---------- TOP NAV: phone-specific tightening ---------- */
+@media (max-width: 720px) {
+    /* Hide the Hindi subtitle to free up horizontal room */
+    .brand-subtitle { display: none !important; }
+
+    .logo-with-shield {
+        width: 38px !important;
+        height: 38px !important;
+        padding: 2px !important;
+    }
+    .brand-title {
+        font-size: 0.88rem !important;
+    }
+    .nav-link {
+        font-size: 0.62rem !important;
+        padding: 0.35rem 0.45rem !important;
+        letter-spacing: 0 !important;
+    }
+    .join-btn-header {
+        font-size: 0.6rem !important;
+        padding: 0.5rem 0.7rem !important;
+        gap: 0.25rem !important;
+    }
+    .join-btn-header span { display: none !important; }
+}
+
+/* ---------- TOP NAV: tiny phone (≤420px) ---------- */
+@media (max-width: 420px) {
+    .header-main-nav {
+        padding: 0.55rem 0.65rem !important;
+        gap: 0.45rem 0.5rem !important;
+    }
+    .brand-title {
+        /* Shorten visual brand on tiny screens via font, keep text intact */
+        font-size: 0.78rem !important;
+    }
+    .logo-with-shield {
+        width: 34px !important;
+        height: 34px !important;
+    }
+    .nav-link {
+        font-size: 0.58rem !important;
+        padding: 0.3rem 0.35rem !important;
+    }
+    .join-btn-header {
+        font-size: 0.55rem !important;
+        padding: 0.45rem 0.6rem !important;
+    }
+}
+
+
+/* ---------- CO-FOUNDER CARD: tablet & phone ---------- */
+@media (max-width: 1024px) {
+    .hero-glass-dashboard-card.main-dashboard {
+        max-width: calc(100vw - 1.5rem) !important;
+        width: calc(100vw - 1.5rem) !important;
+        padding: 4.5rem 1.25rem 2rem 1.25rem !important;
+        border-radius: 24px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        transform: none !important;
+    }
+
+    .main-dashboard .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Founder visual: more compact */
+    .main-dashboard .founder-circle-logo {
+        width: 180px !important;
+        height: 180px !important;
+        padding: 6px !important;
+    }
+    .main-dashboard .founder-title .hindi-name {
+        font-size: 1.6rem !important;
+    }
+    .main-dashboard .founder-title .label {
+        font-size: 0.65rem !important;
+        padding: 0.25rem 0.75rem !important;
+    }
+
+    /* Stats column fills available width with no fancy max-width */
+    .main-dashboard .dashboard-stats {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        align-items: stretch !important;
+    }
+
+    /* Live counter pill back into flow, centered on its own row */
+    .main-dashboard .live-counter-header {
+        position: static !important;
+        margin: 0 auto 0.5rem auto !important;
+        align-self: center !important;
+        max-width: max-content !important;
+    }
+}
+
+/* ---------- CO-FOUNDER CARD: phone tightening ---------- */
+@media (max-width: 720px) {
+    .hero-glass-dashboard-card.main-dashboard {
+        padding: 4rem 1rem 1.5rem 1rem !important;
+    }
+
+    /* Odometer: 7 digits + 2 commas must fit. Compute width. */
+    .main-dashboard .digit-box,
+    .main-dashboard #rollingTicker .digit-box {
+        /* Shrink boxes so 7 of them + 2 commas fit phones around 360-440px */
+        width: clamp(2rem, 8vw, 3rem) !important;
+        min-width: clamp(2rem, 8vw, 3rem) !important;
+        height: clamp(3rem, 12vw, 4.4rem) !important;
+        flex: 0 0 clamp(2rem, 8vw, 3rem) !important;
+        border-radius: 8px !important;
+    }
+    .main-dashboard .digit-char {
+        font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+        height: clamp(3rem, 12vw, 4.4rem) !important;
+    }
+    .main-dashboard .ticker-comma {
+        font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+        margin: 0 0.05rem !important;
+    }
+    .main-dashboard .ticker-container {
+        gap: 0.18rem !important;
+        margin: 0.25rem auto 0.75rem auto !important;
+    }
+
+    /* CTA button slightly smaller */
+    .main-dashboard .btn-dashboard-primary {
+        padding: 1rem 1.25rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Milestone strip: 2x2 grid (already partially handled, force here) */
+    .main-dashboard .milestones-ticker-strip {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.45rem !important;
+    }
+    .main-dashboard .milestone-num {
+        font-size: 0.8rem !important;
+    }
+    .main-dashboard .milestone-desc {
+        font-size: 0.55rem !important;
+    }
+
+    .main-dashboard .progress-bar-container {
+        height: 10px !important;
+    }
+
+    .main-dashboard .live-counter-header {
+        padding: 0.4rem 0.9rem !important;
+    }
+    .main-dashboard .live-counter-header .tag {
+        font-size: 0.65rem !important;
+    }
+}
+
+/* ---------- CO-FOUNDER CARD: tiny phone ---------- */
+@media (max-width: 420px) {
+    .hero-glass-dashboard-card.main-dashboard {
+        padding: 3.5rem 0.75rem 1.25rem 0.75rem !important;
+        border-radius: 18px !important;
+    }
+    .main-dashboard .founder-circle-logo {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .main-dashboard .founder-title .hindi-name {
+        font-size: 1.4rem !important;
+    }
+}
