@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Rational Congress | Done Waiting.</title>
+    <meta name="description" content="BJP broke it. INC watched. 10 million of us write our own future. Join the Indian Rational Congress. Same hand. Different generation. 🤟">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="assets/logo_hand.png">
+    <link rel="preload" as="image" href="assets/logo_hand.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Compact layout sizing for hero fold integration */
+        .hero {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-title {
+            margin-bottom: 0.5rem;
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2.2vw, 1.6rem);
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cyber Grid Background Overlay -->
+    <div class="cyber-grid">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Ashoka Chakra Full-Screen Background -->
+    <div class="ashoka-bg-canvas">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Single tapered spear-shaped spoke pointing up from hub -->
+                <path id="chakra-spoke" d="M 250 40 Q 246 140 247 218 Q 250 222 253 218 Q 254 140 250 40 Z" fill="#ffffff"/>
+            </defs>
+
+            <!-- Outer rim: thick double ring -->
+            <circle cx="250" cy="250" r="232" stroke="#ffffff" stroke-width="4" fill="none"/>
+            <circle cx="250" cy="250" r="222" stroke="#ffffff" stroke-width="1.2" fill="none"/>
+
+            <!-- 24 spokes, 15° apart -->
+            <g opacity="0.95">
+                <use href="#chakra-spoke" transform="rotate(0 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(15 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(30 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(45 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(60 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(75 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(90 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(105 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(120 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(135 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(150 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(165 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(180 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(195 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(210 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(225 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(240 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(255 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(270 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(285 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(300 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(315 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(330 250 250)"/>
+                <use href="#chakra-spoke" transform="rotate(345 250 250)"/>
+            </g>
+
+            <!-- Hub -->
+            <circle cx="250" cy="250" r="28" fill="#ffffff"/>
+            <circle cx="250" cy="250" r="22" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.7"/>
+            <circle cx="250" cy="250" r="6"  fill="#3b82f6"/>
+        </svg>
+    </div>
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+
+
+
+    <!-- UNIFIED HEADER WITH DUAL BRANDING & TOP ACTIONS (STATUS TICKER + NAVIGATION) -->
+    <header class="top-header-wrap">
+        <!-- Full-Width Running Cyber-Marquee Status Ticker -->
+        <div class="top-status-ticker-full">
+            <div class="status-ticker-track">
+                <span class="ticker-item"><span class="ticker-badge crisis">CRISIS</span> NEET PAPER LEAK AGAIN?! 💀</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge crisis">AIR QUALITY</span> GAS CHAMBER 😷</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge awakening">YOUTH</span> 45,000,000+ UNEMPLOYED & CHILLING? 😭</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge safety">TRAFFIC</span> POTHOLE COUNT = INFINITY 🕳️</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge awakening">THE WE</span> 1 MOVEMENT RISING 🤟</span>
+                <span class="ticker-dot"></span>
+                
+                <!-- Repeat for seamless looping -->
+                <span class="ticker-item"><span class="ticker-badge crisis">CRISIS</span> NEET PAPER LEAK AGAIN?! 💀</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge crisis">AIR QUALITY</span> GAS CHAMBER 😷</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge awakening">YOUTH</span> 45,000,000+ UNEMPLOYED & CHILLING? 😭</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge safety">TRAFFIC</span> POTHOLE COUNT = INFINITY 🕳️</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item"><span class="ticker-badge awakening">THE WE</span> 1 MOVEMENT RISING 🤟</span>
+                <span class="ticker-dot"></span>
+            </div>
+        </div>
+        
+        <!-- Main Header Branding and Navigation Bar -->
+        <div class="header-main-nav">
+            <a href="index.html" class="header-branding">
+                <div class="logo-with-shield">
+                    <img src="assets/logo_hand.png" alt="IRC Logo" class="logo-img" decoding="async" width="54" height="54">
+                </div>
+                <div class="branding-text">
+                    <span class="brand-title">INDIAN RATIONAL CONGRESS</span>
+                    <span class="brand-subtitle">भारतीय समझदार पार्टी 🤟</span>
+                </div>
+            </a>
+            <div class="nav-pill-container">
+                <nav class="nav-bar">
+                    <a href="index.html" class="nav-link active">Home 🏠</a>
+                    <a href="journey.html" class="nav-link">Journey 🗺️</a>
+                    <a href="manifesto.html" class="nav-link">Manifesto 📜</a>
+                    <a href="about.html" class="nav-link">About 🤟</a>
+                </nav>
+            </div>
+            <a href="#join" class="join-btn-header">
+                JOIN THE MOVEMENT 💪 <span>&rsaquo;</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (INTEGRATED HEADLINE, TICKER & TIMELINE ABOVE FOLD) -->
+    <section class="hero section-gloomy" style="padding-top: 8rem;">
+        <div class="multilingual-watermarks-container">
+            <span class="watermark-item" style="top: 45%; left: 5%; --rot: -8deg; font-size: 2.5rem;">युवा</span>
+            <span class="watermark-item" style="top: 48%; right: 10%; --rot: 5deg; font-size: 3rem;">YOUTH</span>
+            <span class="watermark-item" style="top: 52%; left: 45%; --rot: -2deg; font-size: 2.2rem;">CHANGE</span>
+            <span class="watermark-item" style="top: 58%; left: 15%; --rot: 10deg; font-size: 4rem;">VOICE</span>
+            <span class="watermark-item" style="top: 62%; right: 25%; --rot: -5deg; font-size: 2.8rem;">युवा</span>
+            <span class="watermark-item" style="top: 66%; left: 80%; --rot: 15deg; font-size: 3.5rem;">STAY LOUD</span>
+            <span class="watermark-item" style="top: 70%; left: 10%; --rot: -12deg; font-size: 2.4rem;">இளைஞர்கள்</span>
+            <span class="watermark-item" style="top: 75%; right: 15%; --rot: 4deg; font-size: 3.2rem;">RISE UP</span>
+            <span class="watermark-item" style="top: 79%; left: 30%; --rot: -8deg; font-size: 2.6rem;">OUR TIME</span>
+            <span class="watermark-item" style="top: 83%; right: 40%; --rot: 6deg; font-size: 3.8rem;">NO MORE</span>
+            <span class="watermark-item" style="top: 87%; left: 5%; --rot: -15deg; font-size: 2.22rem;">இளைஞர்கள்</span>
+            <span class="watermark-item" style="top: 90%; right: 5%; --rot: 8deg; font-size: 3.4rem;">CHANCE</span>
+            <span class="watermark-item" style="top: 93%; left: 45%; --rot: -3deg; font-size: 2.7rem;">भारत</span>
+            <span class="watermark-item" style="top: 96%; right: 20%; --rot: -10deg; font-size: 4.2rem;">YOUTH</span>
+            <span class="watermark-item" style="top: 98%; left: 20%; --rot: 12deg; font-size: 2.5rem;">VOTE NOW</span>
+        </div>
+
+        <!-- 1. Unified Top Wide Glass Card -->
+        <div class="hero-glass-dashboard-card unified-top-card" id="unifiedTopCard" onclick="triggerMainTransition()">
+            <!-- Party Background Fragments (Logos) -->
+            <div class="party-logos-watermarks">
+                <img src="assets/p1.png" alt="" class="p-logo-watermark" decoding="async" fetchpriority="low">
+                <img src="assets/p2.png" alt="" class="p-logo-watermark" decoding="async" fetchpriority="low">
+                <img src="assets/p3.png" alt="" class="p-logo-watermark" decoding="async" fetchpriority="low">
+                <img src="assets/p4.png" alt="" class="p-logo-watermark" decoding="async" fetchpriority="low">
+                <img src="assets/p5.png" alt="" class="p-logo-watermark" decoding="async" fetchpriority="low">
+            </div>
+
+            <!-- Dynamic Transition Overlay Elements -->
+            <div class="card-transition-overlay">
+                <div class="transition-hindi-text">बेटा, तुमसे ना हो पायेगा... 🤡</div>
+                <div class="transition-enough-text">THE YOUTH HAS HAD ENOUGH! 🤟</div>
+            </div>
+
+            <!-- Standard Card Content Wrapper -->
+            <div class="card-original-content">
+                <h1 class="hero-title-main">
+                    <span class="gradient-blue-text">One party broke the system,</span> <span class="gradient-orange-text">another watched it.</span>
+                </h1>
+                
+                <!-- Side-by-Side Horror Stats Counters inside the same card -->
+                <div class="simple-stats-hud">
+                    <div class="simple-stat-box">
+                        <div class="simple-stat-num unemploymentCounter">0</div>
+                        <div class="simple-stat-label">Unemployed Youth 💼</div>
+                        <div class="crime-subtext">"Go sell pakoras," they said.</div>
+                    </div>
+                    <div class="simple-stat-box">
+                        <div class="simple-stat-num rapesCounter">0</div>
+                        <div class="simple-stat-label">Reported Sexual Assaults 💔</div>
+                        <div class="crime-subtext">Women's safety? Mostly in PR ads.</div>
+                    </div>
+                    <div class="simple-stat-box">
+                        <div class="simple-stat-num murdersCounter">0</div>
+                        <div class="simple-stat-label">Murders Registered 🩸</div>
+                        <div class="crime-subtext">Law & order went on a vacation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Connected Co-Founders Odometer & Progress Dashboard Card -->
+        <div class="hero-glass-dashboard-card main-dashboard" id="mainDashboard">
+            <div class="dashboard-grid">
+                <!-- Left Side: Founder Visual -->
+                <div class="founder-branding">
+                    <div class="founder-circle-logo">
+                        <img src="assets/youth_enough.png" alt="IRC Logo" class="founder-img" decoding="async">
+                    </div>
+                    <div class="founder-title">
+                        <span class="label">OUR FOUNDER</span>
+                        <h3 class="hindi-name">भारत का युवा</h3>
+                    </div>
+                </div>
+
+                <!-- Right Side: Stats & Action -->
+                <div class="dashboard-stats">
+                    <div class="live-counter-header">
+                        <span class="pulse-dot"></span>
+                        <span class="tag">LIVE REGISTERED CO-FOUNDERS</span>
+                    </div>
+                    
+                    <!-- Advanced Digit Odometer Ticker (populated by JS) -->
+                    <div class="ticker-container" id="rollingTicker"></div>
+                    
+                    <!-- Connected Progress Bar & Milestones -->
+                    <div class="hero-timeline-wrap">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progressBarFill"></div>
+                        </div>
+                        <div class="milestones-ticker-strip">
+                            <span class="milestone-ticker-node active">
+                                <span class="milestone-num">100K ✓</span>
+                                <span class="milestone-desc">Reveal Vision</span>
+                            </span>
+                            <span class="milestone-ticker-node active">
+                                <span class="milestone-num">1M ✓</span>
+                                <span class="milestone-desc">Discord Server</span>
+                            </span>
+                            <span class="milestone-ticker-node pulse">
+                                <span class="milestone-num">5M ⚡</span>
+                                <span class="milestone-desc">Manifesto Vote</span>
+                            </span>
+                            <span class="milestone-ticker-node locked">
+                                <span class="milestone-num">10M 🔒</span>
+                                <span class="milestone-desc">Youth Summit</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-actions">
+                        <a href="#join" class="btn-dashboard-primary">
+                            BECOME A CO-FOUNDER <span class="arrow">&rarr;</span>
+                        </a>
+                        <div class="join-movement-wrapper">
+                            <span class="icon-group">👥</span>
+                            <span class="text">Join the movement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Four Pillars HUD -->
+        <div class="pillars-hud">
+            <div class="pillar-item future">
+                <div class="pillar-icon">⚡</div>
+                <div class="pillar-content">
+                    <span class="title">FUTURE IN CHARGE</span>
+                    <span class="desc">Led by the youth.</span>
+                </div>
+            </div>
+            <div class="pillar-item boomer">
+                <div class="pillar-icon">🧠</div>
+                <div class="pillar-content">
+                    <span class="title">ZERO BOOMER BS</span>
+                    <span class="desc">No stupid lectures.</span>
+                </div>
+            </div>
+            <div class="pillar-item funding">
+                <div class="pillar-icon">💸</div>
+                <div class="pillar-content">
+                    <span class="title">ZERO FUNDING WHATSOEVER</span>
+                    <span class="desc">Just as poor as you.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRUTALIST GIANT MARQUEE BANNER -->
+    <div class="marquee-banner">
+        <div class="marquee-track">
+            <span class="marquee-text">NO MORE BOOMER BS 🤫</span>
+            <span class="marquee-text outline-text">WE ARE THE SHAREHOLDERS 🇮🇳</span>
+            <span class="marquee-text">THE YOUTH HAS HAD ENOUGH! 🤟</span>
+            <span class="marquee-text outline-text">DATA OVER DRAMA 📊</span>
+            <span class="marquee-text">NO MORE BOOMER BS 🤫</span>
+            <span class="marquee-text outline-text">WE ARE THE SHAREHOLDERS 🇮🇳</span>
+            <span class="marquee-text">THE YOUTH HAS HAD ENOUGH! 🤟</span>
+            <span class="marquee-text outline-text">DATA OVER DRAMA 📊</span>
+        </div>
+        <div class="marquee-track">
+            <span class="marquee-text">NO MORE BOOMER BS 🤫</span>
+            <span class="marquee-text outline-text">WE ARE THE SHAREHOLDERS 🇮🇳</span>
+            <span class="marquee-text">THE YOUTH HAS HAD ENOUGH! 🤟</span>
+            <span class="marquee-text outline-text">DATA OVER DRAMA 📊</span>
+            <span class="marquee-text">NO MORE BOOMER BS 🤫</span>
+            <span class="marquee-text outline-text">WE ARE THE SHAREHOLDERS 🇮🇳</span>
+            <span class="marquee-text">THE YOUTH HAS HAD ENOUGH! 🤟</span>
+            <span class="marquee-text outline-text">DATA OVER DRAMA 📊</span>
+        </div>
+    </div>
+
+    <!-- THREE COLUMNS COMPARISON -->
+    <section class="section-gloomy" style="border-top: 1px solid var(--border-color); padding: 8rem 0;">
+        <!-- Multilingual background watermarks for Choices -->
+        <div class="multilingual-watermarks-container">
+            <span class="watermark-item" style="top: 20%; right: 10%; font-size: clamp(4rem, 10vw, 8rem);">তরুণ</span>
+            <span class="watermark-item" style="top: 70%; left: 10%; font-size: clamp(4rem, 10vw, 8rem);">యువత</span>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">The Three Choices</h2>
+            <div class="three-columns-grid">
+                <!-- BJP Card -->
+                <div class="column-card bjp">
+                    <div class="card-tag">STATUS: UNRESPONSIVE ⚠️</div>
+                    <h3 class="card-title glow-text-saffron">BJP</h3>
+                    <ul class="irc-points card-bullet-sarcastic">
+                        <li>PR machinery working 24/7 📢</li>
+                        <li>WhatsApp forward factory 🏭</li>
+                        <li>18% GST on basic breathing 💸</li>
+                    </ul>
+                    <div class="card-footer-visual">
+                        <span style="font-size: 1.2rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 800;">BORING 🥱</span>
+                    </div>
+                </div>
+                <!-- INC Card -->
+                <div class="column-card inc">
+                    <div class="card-tag">STATUS: INERT 😴</div>
+                    <h3 class="card-title" style="color: var(--text-muted);">INC</h3>
+                    <ul class="irc-points card-bullet-sarcastic">
+                        <li>Sad tweets 🐦</li>
+                        <li>Dynasty politics first 👑</li>
+                        <li>Permanent snooze mode 💤</li>
+                    </ul>
+                    <div class="card-footer-visual">
+                        <span style="font-size: 1.2rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 800;">SLEEPING MODE 😴</span>
+                    </div>
+                </div>
+                <!-- IRC Card -->
+                <div class="column-card irc">
+                    <div class="card-tag">STATUS: ACTIVE 🚀</div>
+                    <h3 class="card-title glow-text">IRC</h3>
+                    <ul class="irc-points card-bullet-sarcastic">
+                        <li>Zero high-income uncles 🤟</li>
+                        <li>Driven by caffeine ⚡</li>
+                        <li>Manifesto built by you 🚀</li>
+                    </ul>
+                    <div class="card-footer-visual">
+                        <img src="assets/logo_hand.png" alt="IRC Logo" class="visual-logo" style="border-radius: 50%;" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SIGNUP FORM -->
+    <section id="join" class="signup-section section-bright">
+        <!-- Multilingual background watermarks for Signup -->
+        <div class="multilingual-watermarks-container">
+            <span class="watermark-item" style="top: 10%; left: 5%; font-size: clamp(4rem, 10vw, 8rem);">ਜਵਾਨੀ</span>
+            <span class="watermark-item" style="top: 50%; right: 8%; font-size: clamp(5rem, 12vw, 9rem);">ಯುವಜನ</span>
+            <span class="watermark-item" style="top: 80%; left: 7%; font-size: clamp(4rem, 10vw, 8rem);">യുവത്വം</span>
+        </div>
+        <div class="container">
+            <div class="signup-grid">
+                <div class="signup-content">
+                    <div class="signup-live-badge">
+                        <span class="live-dot"></span>
+                        <span class="live-text">2,431 SIGNED UP IN THE LAST HOUR</span>
+                    </div>
+
+                    <h2 class="signup-headline">
+                        <span class="signup-title-line">Done with the <span class="uncles-strike">uncles?</span></span>
+                        <span class="signup-title-line tricolour-text">So are we. 🚀</span>
+                    </h2>
+                    <p class="signup-lead">The people of India are not vote banks. They are <strong>shareholders of the country</strong>. To make this happen, we need you. Stand with millions of young Indians done with waiting.</p>
+                    
+                    <div class="signup-bullets signup-bullets-v2">
+                        <div class="bullet-item">
+                            <div class="bullet-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                            <div class="bullet-text">
+                                <h4>Zero boring speeches 🤫</h4>
+                                <p>No 90-minute monologues. Ever.</p>
+                            </div>
+                        </div>
+                        <div class="bullet-item">
+                            <div class="bullet-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                            <div class="bullet-text">
+                                <h4>Vote on every decision from day one 🗳️</h4>
+                                <p>Direct democracy, not back-room deals.</p>
+                            </div>
+                        </div>
+                        <div class="bullet-item">
+                            <div class="bullet-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                            <div class="bullet-text">
+                                <h4>Your name on the founding charter 📜</h4>
+                                <p>You're not joining late. You're founding it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signup Card -->
+                <div class="glass-card signup-form-card">
+                    <div class="form-card-header">
+                        <h3 class="form-card-title">Claim your spot 🤟</h3>
+                        <p class="form-card-sub">30 seconds. No spam. No uncle vibes.</p>
+                    </div>
+                    <form class="glass-form" id="signupForm" onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <input type="text" id="userName" class="form-input" placeholder=" " required autocomplete="off">
+                            <label for="userName">Your Name (uncles call it 'Beta') 🧑‍💻</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="userCity" class="form-input" placeholder=" " required autocomplete="off">
+                            <label for="userCity">Your City (where the traffic is worse) 📍</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="userFix" class="form-input" placeholder=" " required autocomplete="off">
+                            <label for="userFix">Fix first? (paper leaks, potholes, slow internet) 🛠️</label>
+                        </div>
+                        <div class="form-group select-wrap">
+                            <select id="userContribution" class="form-select" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="ideas">Big brain policy 🧠</option>
+                                <option value="mobilization">Offline meetups & energy 📣</option>
+                                <option value="design">Memes & sick visuals 🎨</option>
+                                <option value="support">Moral support & vibes ✨</option>
+                            </select>
+                            <label for="userContribution" class="select-label">What is your superpower? ⚡</label>
+                        </div>
+                        <div class="checkbox-wrap" onclick="toggleCheckbox()">
+                            <input type="checkbox" id="whatsappOptin" class="checkbox-input" checked onclick="event.stopPropagation()">
+                            <span>Ping me updates (no "Good Morning" spam, we promise!) 🤫</span>
+                        </div>
+                        <button type="submit" class="btn-primary form-btn signup-cta-btn">
+                            <span class="cta-label">SIGN UP AS CO-FOUNDER</span>
+                            <span class="cta-arrow">→</span>
+                        </button>
+                        <p class="form-fineprint">🔒 Your info stays anonymous. We never share or sell.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS OVERLAY MODAL -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-card">
+            <span class="success-icon">🤟</span>
+            <h3 class="success-title">YOU'RE IN! 🎉</h3>
+            <p class="success-desc" id="successDesc">You have officially registered your intent. Boomer politics is officially shaking.</p>
+            <div class="founder-badge">
+                <p style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 0.25rem;">OFFICIAL GENERATION Z / MILLENNIAL ID</p>
+                <h3 id="founderNumber">FOUNDER #1,438,215</h3>
+            </div>
+            <button class="success-close" onclick="closeSuccess()">LET'S GO! 🚀</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="assets/logo.png" alt="IRC Logo" class="footer-logo" loading="lazy" decoding="async">
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="journey.html" class="footer-link">The Journey</a>
+                    <a href="manifesto.html" class="footer-link">Manifesto</a>
+                    <a href="about.html" class="footer-link">Who We Are</a>
+                </div>
+                <div class="footer-copy">
+                    🤟 IRC is an anonymous, community-driven democratic movement. © 2026.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating navbar is now handled responsively inside the unified header -->
+
+    <!-- Supabase JS SDK (handles real signups + live count) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+    <script src="app.js" defer></script>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // ===== Cached DOM refs =====
+        const rollingTicker = document.getElementById('rollingTicker');
+        const progressBarFill = document.getElementById('progressBarFill');
+        const digitStrips = []; // populated in initOdometer
+
+        // ===== Visibility-aware interval helper =====
+        // Wraps setInterval so the timer is paused when:
+        //   (a) the tab is hidden (document.hidden)
+        //   (b) the target element is offscreen (IntersectionObserver)
+        // No visual difference: counters resume from where they left off.
+        function visibilityInterval(targetEl, fn, ms) {
+            let id = null;
+            let tabVisible = !document.hidden;
+            let elVisible = true;
+
+            const start = () => { if (id === null && tabVisible && elVisible) id = setInterval(fn, ms); };
+            const stop  = () => { if (id !== null) { clearInterval(id); id = null; } };
+            const sync  = () => { (tabVisible && elVisible) ? start() : stop(); };
+
+            document.addEventListener('visibilitychange', () => {
+                tabVisible = !document.hidden;
+                sync();
+            });
+
+            if (targetEl && 'IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    elVisible = entries[0].isIntersecting;
+                    sync();
+                }, { rootMargin: '200px' });
+                io.observe(targetEl);
+            }
+
+            start();
+        }
+
+        // ===== Global Odometer Counter =====
+        let currentCount = 1438214;
+
+        function initOdometer(initialNum) {
+            rollingTicker.innerHTML = '';
+            const numStr = initialNum.toString();
+            const frag = document.createDocumentFragment();
+
+            for (let i = 0; i < numStr.length; i++) {
+                if (i === 1 || i === 4) {
+                    const comma = document.createElement('span');
+                    comma.className = 'ticker-comma ' + (i === 1 ? 'comma-orange' : 'comma-green');
+                    comma.textContent = ',';
+                    frag.appendChild(comma);
+                }
+                const box = document.createElement('div');
+                box.className = 'digit-box';
+                const strip = document.createElement('div');
+                strip.className = 'digit-strip';
+                for (let d = 0; d <= 9; d++) {
+                    const c = document.createElement('div');
+                    c.className = 'digit-char';
+                    c.textContent = d;
+                    strip.appendChild(c);
+                }
+                box.appendChild(strip);
+                frag.appendChild(box);
+                digitStrips[i] = strip;
+            }
+            rollingTicker.appendChild(frag);
+            updateOdometerDigits(initialNum);
+        }
+
+        function updateOdometerDigits(num) {
+            let numStr = num.toString();
+            while (numStr.length < 7) numStr = '0' + numStr;
+            for (let i = 0; i < 7; i++) {
+                const strip = digitStrips[i];
+                if (strip) {
+                    strip.style.transform = `translateY(-${parseInt(numStr[i]) * 10}%)`;
+                }
+            }
+        }
+
+        function updateProgressBar(count) {
+            progressBarFill.style.width = ((count / 10000000) * 100) + '%';
+        }
+
+        // ===== Milestone strip: switch nodes between locked/active/pulse based on count =====
+        const milestoneNodes = document.querySelectorAll('.milestones-ticker-strip .milestone-ticker-node');
+        const milestoneThresholds = [100000, 1000000, 5000000, 10000000];
+
+        function updateMilestoneStates(count) {
+            milestoneNodes.forEach((node, idx) => {
+                const threshold = milestoneThresholds[idx];
+                const next = milestoneThresholds[idx - 1] !== undefined ? milestoneThresholds[idx - 1] : 0;
+                node.classList.remove('active', 'pulse', 'locked');
+                if (count >= threshold) {
+                    node.classList.add('active'); // unlocked & complete
+                } else if (count >= next) {
+                    node.classList.add('pulse');  // current target
+                } else {
+                    node.classList.add('locked');
+                }
+            });
+        }
+
+        initOdometer(currentCount);
+        updateProgressBar(currentCount);
+        updateMilestoneStates(currentCount);
+
+        // ===== Wire to live database via window.IRC =====
+        function applyLiveCount(count) {
+            currentCount = count;
+            updateOdometerDigits(count);
+            updateProgressBar(count);
+            updateMilestoneStates(count);
+        }
+
+        // app.js may not be loaded yet (defer). Wait for it.
+        function whenIRCReady(cb) {
+            if (window.IRC) return cb();
+            const t = setInterval(() => {
+                if (window.IRC) { clearInterval(t); cb(); }
+            }, 50);
+        }
+
+        whenIRCReady(() => {
+            window.IRC.startPolling(applyLiveCount);
+        });
+
+        // ===== National Statistics Counter =====
+        const statTargets = { unemployment: 45000000, rapes: 31000, murders: 29000 };
+        const currentStats = { unemployment: 0, rapes: 0, murders: 0 };
+
+        // Cache stat elements once at startup (avoid repeated querySelectorAll)
+        const statEls = {
+            unemployment: document.querySelectorAll('.unemploymentCounter'),
+            rapes: document.querySelectorAll('.rapesCounter'),
+            murders: document.querySelectorAll('.murdersCounter')
+        };
+
+        function formatStatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function setStatText(key, value) {
+            const text = formatStatNumber(value);
+            const list = statEls[key];
+            for (let i = 0; i < list.length; i++) list[i].textContent = text;
+        }
+
+        function initStatsCounters() {
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(timestamp) {
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeProgress = progress * (2 - progress);
+
+                currentStats.unemployment = Math.floor(easeProgress * statTargets.unemployment);
+                currentStats.rapes = Math.floor(easeProgress * statTargets.rapes);
+                currentStats.murders = Math.floor(easeProgress * statTargets.murders);
+
+                setStatText('unemployment', currentStats.unemployment);
+                setStatText('rapes', currentStats.rapes);
+                setStatText('murders', currentStats.murders);
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    startRealTimeStatsIncrements();
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        function startRealTimeStatsIncrements() {
+            const statsContainer = document.querySelector('.simple-stats-hud');
+            visibilityInterval(statsContainer, () => {
+                statTargets.unemployment += 1;
+                setStatText('unemployment', statTargets.unemployment);
+            }, 2500);
+            visibilityInterval(statsContainer, () => {
+                statTargets.rapes += 1;
+                setStatText('rapes', statTargets.rapes);
+            }, 45000);
+            visibilityInterval(statsContainer, () => {
+                statTargets.murders += 1;
+                setStatText('murders', statTargets.murders);
+            }, 60000);
+        }
+
+        // ===== Widescreen Transition Sequence =====
+        let mainTransitionTriggered = false;
+        function triggerMainTransition() {
+            if (mainTransitionTriggered) return;
+            mainTransitionTriggered = true;
+
+            const card = document.getElementById('unifiedTopCard');
+            if (!card) return;
+
+            card.classList.add('transition-phase-1');
+            setTimeout(() => card.classList.add('transition-phase-2'), 1800);
+            setTimeout(() => card.classList.add('transition-phase-3'), 3600);
+        }
+
+        // ===== Init on DOM ready =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initStatsCounters();
+
+            setTimeout(triggerMainTransition, 6000);
+
+            // One-shot scroll trigger; remove listener after it fires
+            const scrollHandler = () => {
+                if (window.scrollY > 30) {
+                    triggerMainTransition();
+                    window.removeEventListener('scroll', scrollHandler);
+                }
+            };
+            window.addEventListener('scroll', scrollHandler, { passive: true });
+        });
+
+        // ===== Form helpers =====
+        function toggleCheckbox() {
+            const checkbox = document.getElementById('whatsappOptin');
+            checkbox.checked = !checkbox.checked;
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value.trim();
+            const city = document.getElementById('userCity').value.trim();
+            const fix = document.getElementById('userFix').value.trim();
+            const contribution = document.getElementById('userContribution').value;
+            const whatsappOptin = document.getElementById('whatsappOptin').checked;
+
+            if (!name || !city || !fix || !contribution) return;
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+
+            const finalize = (founderNum) => {
+                try {
+                    localStorage.setItem('irc_registered', 'true');
+                    localStorage.setItem('irc_name', name);
+                    localStorage.setItem('irc_city', city);
+                    localStorage.setItem('irc_founder_number', founderNum);
+                } catch (err) { /* localStorage unavailable */ }
+
+                document.getElementById('founderNumber').textContent = "FOUNDER #" + formatStatNumber(founderNum);
+                document.getElementById('successDesc').textContent = `Hey ${name}, you are officially registered as a co-founder in ${city}. Boomer politics is officially shaking! 🚀 You have taken the future into your own hands. We will notify you about active chapters soon (strictly no 'Good Morning' forwards, we promise!) 🤟`;
+                document.getElementById('successOverlay').classList.add('active');
+                if (submitBtn) submitBtn.disabled = false;
+            };
+
+            // Submit to backend if available; fall back to local-only otherwise.
+            if (window.IRC && window.IRC.submitSignup) {
+                window.IRC.submitSignup({
+                    name, city, fix_first: fix,
+                    contribution, whatsapp_optin: whatsappOptin
+                })
+                .then(() => window.IRC.fetchCount())
+                .then((newCount) => {
+                    applyLiveCount(newCount);
+                    finalize(newCount);
+                })
+                .catch((err) => {
+                    console.warn('[IRC] signup failed, falling back to local:', err);
+                    currentCount += 1;
+                    updateOdometerDigits(currentCount);
+                    updateProgressBar(currentCount);
+                    finalize(currentCount);
+                });
+            } else {
+                currentCount += 1;
+                updateOdometerDigits(currentCount);
+                updateProgressBar(currentCount);
+                finalize(currentCount);
+            }
+        }
+
+        function closeSuccess() {
+            document.getElementById('successOverlay').classList.remove('active');
+            document.getElementById('signupForm').reset();
+        }
+    </script>
+</body>
+</html>
