@@ -7722,3 +7722,76 @@ footer {
         padding-right: 0.6rem !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE DEFINITIVE FIX v3
+   Highest specificity, last in cascade, single source of truth
+   for mobile hero card layout. Rejects every desktop quirk.
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    /* Section.hero — fixed clearance for the wrapped header */
+    section.hero,
+    section.hero[style] {
+        padding: 11.5rem 1rem 3rem 1rem !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Both top cards: reset every desktop offset */
+    section.hero .hero-glass-dashboard-card.unified-top-card,
+    section.hero .hero-glass-dashboard-card.main-dashboard {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        box-sizing: border-box !important;
+        float: none !important;
+    }
+
+    /* Unified card: lift max-height cap, comfortable internal padding */
+    section.hero .hero-glass-dashboard-card.unified-top-card {
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 1.5rem 1.25rem !important;
+    }
+
+    /* Co-founder card: no live-counter padding (pill is in flow now),
+       no negative margins from desktop translateY tricks */
+    section.hero .hero-glass-dashboard-card.main-dashboard {
+        padding: 1.5rem 1.25rem 2rem 1.25rem !important;
+    }
+
+    /* Phase-3 collapse keeps unified card hidden but doesn't move
+       the co-founder card. Reset any sibling-selector tricks. */
+    section.hero .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
+        transform: none !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 720px) {
+    section.hero,
+    section.hero[style] {
+        padding: 12rem 0.75rem 2.5rem 0.75rem !important;
+    }
+    section.hero .hero-glass-dashboard-card.unified-top-card {
+        padding: 1.25rem 1rem !important;
+    }
+    section.hero .hero-glass-dashboard-card.main-dashboard {
+        padding: 1.25rem 1rem 1.5rem 1rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    section.hero,
+    section.hero[style] {
+        padding: 12rem 0.6rem 2rem 0.6rem !important;
+    }
+}
