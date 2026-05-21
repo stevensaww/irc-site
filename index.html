@@ -246,16 +246,16 @@
                             <div class="progress-bar-fill" id="progressBarFill"></div>
                         </div>
                         <div class="milestones-ticker-strip">
-                            <span class="milestone-ticker-node active">
-                                <span class="milestone-num">100K ✓</span>
+                            <span class="milestone-ticker-node pulse">
+                                <span class="milestone-num">100K ⚡</span>
                                 <span class="milestone-desc">Reveal Vision</span>
                             </span>
-                            <span class="milestone-ticker-node active">
-                                <span class="milestone-num">1M ✓</span>
+                            <span class="milestone-ticker-node locked">
+                                <span class="milestone-num">1M 🔒</span>
                                 <span class="milestone-desc">Discord Server</span>
                             </span>
-                            <span class="milestone-ticker-node pulse">
-                                <span class="milestone-num">5M ⚡</span>
+                            <span class="milestone-ticker-node locked">
+                                <span class="milestone-num">5M 🔒</span>
                                 <span class="milestone-desc">Manifesto Vote</span>
                             </span>
                             <span class="milestone-ticker-node locked">
@@ -549,7 +549,7 @@
         }
 
         // ===== Global Odometer Counter =====
-        let currentCount = 1438214;
+        let currentCount = 0;
 
         function initOdometer(initialNum) {
             rollingTicker.innerHTML = '';

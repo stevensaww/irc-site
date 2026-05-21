@@ -24,7 +24,7 @@
     // Displayed count = BASE_COUNT + real signups in the database.
     // Keep at 1438214 to preserve the launch-day visuals exactly.
     // Set to 0 if you'd rather show only real signups from day one.
-    BASE_COUNT: 1438214,
+    BASE_COUNT: 0,
 
     // How often the page re-fetches the live count (ms).
     // 30000 = every 30s. Lower feels more "live" but uses more API calls.
