@@ -716,7 +716,13 @@
 
             card.classList.add('transition-phase-1');
             setTimeout(() => card.classList.add('transition-phase-2'), 1800);
-            setTimeout(() => card.classList.add('transition-phase-3'), 3600);
+            setTimeout(() => {
+                card.classList.add('transition-phase-3');
+                // Also flag the hero so CSS can collapse the now-unused
+                // padding/space the unified card occupied.
+                const heroEl = card.closest('section.hero');
+                if (heroEl) heroEl.classList.add('hero-collapsed');
+            }, 3600);
         }
 
         // ===== Init on DOM ready =====

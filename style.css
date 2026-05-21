@@ -7620,3 +7620,23 @@ footer {
         margin: 0 !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE: AFTER UNIFIED CARD COLLAPSES, REMOVE THE GAP
+   The hero's padding-top: 10rem is sized for the 2-row nav.
+   But the hero gap + the collapsed-but-still-spaced unified
+   card add visual emptiness. Once .hero-collapsed is set
+   (added by JS at phase-3), tighten the hero so the co-founder
+   card sits right under the nav.
+   ============================================================ */
+@media (max-width: 1024px) {
+    .hero.hero-collapsed {
+        gap: 0 !important;
+    }
+    /* The unified card with phase-3 already has max-height: 0 + opacity: 0,
+       but it still occupies a flex item slot. Take it fully out of layout. */
+    .hero.hero-collapsed .unified-top-card.transition-phase-3 {
+        display: none !important;
+    }
+}
