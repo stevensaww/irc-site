@@ -7659,3 +7659,514 @@ footer {
         scroll-margin-top: 170px;
     }
 }
+
+
+/* ============================================================
+   ============================================================
+   FOUNDER ID CARD — SUCCESS MODAL
+   Inspired by physical conference badges. Shareable artifact.
+   ============================================================
+   ============================================================ */
+
+/* Overlay */
+.success-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow-y: auto;
+    padding: 2rem 1rem;
+}
+
+.success-overlay.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    animation: successFadeIn 0.4s ease-out;
+}
+
+@keyframes successFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.success-modal {
+    width: 100%;
+    max-width: 540px;
+    margin: 1rem auto 4rem auto;
+    text-align: center;
+    position: relative;
+    animation: modalSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+.success-modal-close {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.success-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Headline */
+.success-modal-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.success-modal-headline-accent {
+    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===================================================
+   THE ID CARD ITSELF
+   =================================================== */
+.founder-id-card {
+    background: linear-gradient(180deg, #f5f1e8 0%, #ede5d3 100%);
+    border-radius: 14px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 380px;
+    position: relative;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.7),
+        0 0 0 2px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 8px #0a0a0a;
+    overflow: hidden;
+    color: #0a0a0a;
+}
+
+/* Lanyard string at top */
+.founder-id-lanyard {
+    width: 4px;
+    height: 40px;
+    background: repeating-linear-gradient(
+        45deg,
+        #FF9933 0px, #FF9933 4px,
+        #FFFFFF 4px, #FFFFFF 8px,
+        #138808 8px, #138808 12px
+    );
+    margin: -55px auto 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.founder-id-clip {
+    width: 32px;
+    height: 12px;
+    background: #888;
+    border-radius: 2px;
+    margin: 4px auto 0 auto;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.founder-id-clip::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 14px;
+    border: 2px solid #888;
+    border-bottom: none;
+    border-radius: 50% 50% 0 0;
+}
+
+.founder-id-inner {
+    padding: 1.5rem 1.25rem 1rem 1.25rem;
+    background: #f5f1e8;
+    margin-top: 0.5rem;
+}
+
+/* Header band */
+.founder-id-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1.5px dashed rgba(0, 0, 0, 0.15);
+    margin-bottom: 1rem;
+}
+
+.founder-id-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FF9933, #FFFFFF, #138808);
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.founder-id-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #f5f1e8;
+    display: block;
+}
+
+.founder-id-brand {
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+}
+
+.founder-id-brand-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    display: flex;
+    flex-direction: column;
+}
+
+.founder-id-brand-name .brand-orange { color: #d97706; }
+.founder-id-brand-name .brand-white  { color: #1a1a1a; }
+.founder-id-brand-name .brand-green  { color: #138808; }
+
+.founder-id-tagline {
+    font-family: var(--font-accent);
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+}
+
+.founder-id-tagline .tag-orange { color: #d97706; }
+.founder-id-tagline .tag-green  { color: #138808; }
+
+/* Body */
+.founder-id-body {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 1rem;
+}
+
+.founder-id-photo {
+    flex-shrink: 0;
+}
+
+.founder-id-photo-silhouette {
+    width: 100px;
+    height: 120px;
+    background: #2a2a2a;
+    border: 2px solid #1a1a1a;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-id-photo-silhouette svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.founder-id-photo-badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f5f1e8;
+    border: 1px solid #FF9933;
+    padding: 1px;
+    overflow: hidden;
+}
+
+.founder-id-photo-badge img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.founder-id-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    text-align: left;
+    padding: 0.25rem 0;
+}
+
+.founder-id-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+}
+
+.founder-id-field-label {
+    font-family: var(--font-accent);
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.founder-id-field-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: #0a0a0a;
+}
+
+.founder-id-number {
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.founder-id-status {
+    font-size: 0.85rem;
+    color: #d97706;
+    letter-spacing: 0.02em;
+}
+
+.founder-id-role {
+    font-size: 0.85rem;
+    color: #138808;
+    letter-spacing: 0.02em;
+}
+
+/* Barcode */
+.founder-id-barcode {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 0.5rem 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.barcode-bars {
+    display: flex;
+    gap: 1px;
+    height: 30px;
+    align-items: stretch;
+}
+
+.barcode-bars span {
+    flex: 1;
+    background: #0a0a0a;
+}
+
+.barcode-bars span:nth-child(2n) {
+    flex: 0.4;
+    background: transparent;
+}
+
+.barcode-bars span:nth-child(3n) {
+    flex: 0.7;
+}
+
+.barcode-bars span:nth-child(5n) {
+    flex: 1.6;
+}
+
+.barcode-bars span:nth-child(7n) {
+    flex: 0.3;
+    background: transparent;
+}
+
+/* Issued To */
+.founder-id-issued {
+    font-family: var(--font-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+    text-align: left;
+    padding: 0.2rem 0;
+}
+
+.founder-id-issued span {
+    color: #d97706;
+    font-weight: 800;
+}
+
+/* Bottom badges row */
+.founder-id-badges {
+    background: #1a1a1a;
+    color: #f5f1e8;
+    padding: 0.65rem 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    border-top: 4px solid #0a0a0a;
+}
+
+.founder-id-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: left;
+}
+
+.founder-id-badge:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0.5rem;
+}
+
+.badge-icon {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.badge-label {
+    font-family: var(--font-accent);
+    font-size: 0.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #f5f1e8;
+    letter-spacing: 0.04em;
+}
+
+/* ===================================================
+   SHARE ROW
+   =================================================== */
+.success-share-row {
+    margin: 2rem auto 1rem auto;
+    max-width: 460px;
+    text-align: center;
+}
+
+.success-share-label {
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+}
+
+.success-share-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    font-family: var(--font-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.share-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.share-btn-whatsapp {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.3);
+    color: #25d366;
+}
+.share-btn-whatsapp:hover {
+    background: rgba(37, 211, 102, 0.2);
+}
+
+.share-btn-twitter {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+.share-btn-copy,
+.share-btn-download {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.25);
+    color: #60a5fa;
+}
+
+.share-btn-copy:hover,
+.share-btn-download:hover {
+    background: rgba(59, 130, 246, 0.18);
+}
+
+/* CTA at bottom */
+.success-modal-cta {
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-accent);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.4);
+    transition: all 0.25s ease;
+}
+
+.success-modal-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.55);
+}
+
+/* Mobile adjustments */
+@media (max-width: 540px) {
+    .success-modal {
+        max-width: 100%;
+    }
+    .founder-id-card {
+        max-width: 100%;
+    }
+    .success-share-buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}

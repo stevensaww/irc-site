@@ -473,17 +473,118 @@
         </div>
     </section>
 
-    <!-- SUCCESS OVERLAY MODAL -->
+    <!-- SUCCESS OVERLAY MODAL — FOUNDER ID CARD -->
     <div class="success-overlay" id="successOverlay">
-        <div class="success-card">
-            <span class="success-icon">🤟</span>
-            <h3 class="success-title">YOU'RE IN! 🎉</h3>
-            <p class="success-desc" id="successDesc">You have officially registered your intent. Boomer politics is officially shaking.</p>
-            <div class="founder-badge">
-                <p style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 0.25rem;">OFFICIAL GENERATION Z / MILLENNIAL ID</p>
-                <h3 id="founderNumber">FOUNDER #1,438,215</h3>
+        <div class="success-modal">
+            <button class="success-modal-close" onclick="closeSuccess()" aria-label="Close">×</button>
+
+            <h2 class="success-modal-headline">
+                <span>NOT A FANBASE.</span>
+                <span class="success-modal-headline-accent">A FOUNDING GENERATION.</span>
+            </h2>
+
+            <!-- The actual ID card (this is what users will share) -->
+            <div class="founder-id-card" id="founderIdCard">
+                <div class="founder-id-lanyard"></div>
+                <div class="founder-id-clip"></div>
+
+                <div class="founder-id-inner">
+                    <!-- Header band -->
+                    <div class="founder-id-header">
+                        <div class="founder-id-logo">
+                            <img src="assets/logo_hand.png" alt="" decoding="async">
+                        </div>
+                        <div class="founder-id-brand">
+                            <div class="founder-id-brand-name">
+                                <span class="brand-orange">INDIAN</span>
+                                <span class="brand-white">RATIONAL</span>
+                                <span class="brand-green">CONGRESS</span>
+                            </div>
+                            <div class="founder-id-tagline">
+                                BUILT BY <span class="tag-orange">THE YOUTH</span>. FOR <span class="tag-green">THE FUTURE</span>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo + details row -->
+                    <div class="founder-id-body">
+                        <div class="founder-id-photo">
+                            <div class="founder-id-photo-silhouette">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M50 10 C 35 10 25 22 25 38 L 25 50 Q 25 60 30 65 L 30 70 Q 15 75 10 95 L 10 120 L 90 120 L 90 95 Q 85 75 70 70 L 70 65 Q 75 60 75 50 L 75 38 C 75 22 65 10 50 10 Z" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+                                </svg>
+                                <div class="founder-id-photo-badge">
+                                    <img src="assets/logo_hand.png" alt="" decoding="async">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="founder-id-details">
+                            <div class="founder-id-field">
+                                <span class="founder-id-field-label">FOUNDER ID</span>
+                                <span class="founder-id-field-value founder-id-number" id="founderIdNumber">#0001</span>
+                            </div>
+                            <div class="founder-id-field">
+                                <span class="founder-id-field-label">STATUS</span>
+                                <span class="founder-id-field-value founder-id-status">CO-FOUNDER</span>
+                            </div>
+                            <div class="founder-id-field">
+                                <span class="founder-id-field-label">ROLE</span>
+                                <span class="founder-id-field-value founder-id-role" id="founderIdRole">CHANGE MAKER</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barcode strip -->
+                    <div class="founder-id-barcode">
+                        <div class="barcode-bars" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <!-- Issued To -->
+                    <div class="founder-id-issued">
+                        ISSUED TO: <span id="founderIdIssuedTo">—</span>
+                    </div>
+                </div>
+
+                <!-- Trust badges row at bottom -->
+                <div class="founder-id-badges">
+                    <div class="founder-id-badge">
+                        <span class="badge-icon">👑</span>
+                        <span class="badge-label">NO LEADERS.<br>NO DYNASTY.</span>
+                    </div>
+                    <div class="founder-id-badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-label">NO COMPROMISE.<br>ONLY PROGRESS.</span>
+                    </div>
+                    <div class="founder-id-badge">
+                        <span class="badge-icon">🏛️</span>
+                        <span class="badge-label">OUR COUNTRY.<br>OUR COMPANY.</span>
+                    </div>
+                </div>
             </div>
-            <button class="success-close" onclick="closeSuccess()">LET'S GO! 🚀</button>
+
+            <!-- Share row -->
+            <div class="success-share-row">
+                <p class="success-share-label">Share your founder ID. Bring 3 friends. 🤟</p>
+                <div class="success-share-buttons">
+                    <a href="#" class="share-btn share-btn-whatsapp" id="shareWhatsApp" target="_blank" rel="noopener">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="#" class="share-btn share-btn-twitter" id="shareTwitter" target="_blank" rel="noopener">
+                        <span>X (Twitter)</span>
+                    </a>
+                    <button class="share-btn share-btn-copy" id="shareCopyLink">
+                        <span>Copy link</span>
+                    </button>
+                    <button class="share-btn share-btn-download" id="shareDownload">
+                        <span>Download card</span>
+                    </button>
+                </div>
+            </div>
+
+            <button class="success-modal-cta" onclick="closeSuccess()">LET'S GO! 🚀</button>
         </div>
     </div>
 
@@ -509,6 +610,8 @@
 
     <!-- Supabase JS SDK (handles real signups + live count) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+    <!-- html2canvas for downloading the founder ID card as image -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
     <script src="app.js" defer></script>
 
     <!-- INTERACTIVE SCRIPTS -->
@@ -760,6 +863,14 @@
             const submitBtn = e.target.querySelector('button[type="submit"]');
             if (submitBtn) submitBtn.disabled = true;
 
+            // Map contribution selectVal -> nice human-readable role
+            const ROLE_MAP = {
+                ideas: 'POLICY BRAIN',
+                mobilization: 'GROUND ENERGY',
+                design: 'CREATIVE FORCE',
+                support: 'BACKBONE'
+            };
+
             const finalize = (founderNum) => {
                 try {
                     localStorage.setItem('irc_registered', 'true');
@@ -768,22 +879,40 @@
                     localStorage.setItem('irc_founder_number', founderNum);
                 } catch (err) { /* localStorage unavailable */ }
 
-                document.getElementById('founderNumber').textContent = "FOUNDER #" + formatStatNumber(founderNum);
-                document.getElementById('successDesc').textContent = `Hey ${name}, you are officially registered as a co-founder in ${city}. Boomer politics is officially shaking! 🚀 You have taken the future into your own hands. We will notify you about active chapters soon (strictly no 'Good Morning' forwards, we promise!) 🤟`;
+                // Populate the founder ID card
+                const idStr = String(founderNum).padStart(4, '0');
+                document.getElementById('founderIdNumber').textContent = '#' + idStr;
+                document.getElementById('founderIdRole').textContent = ROLE_MAP[contribution] || 'CHANGE MAKER';
+                document.getElementById('founderIdIssuedTo').textContent =
+                    name.toUpperCase() + ' · ' + city.toUpperCase();
+
+                // Build share URL + copy
+                const siteUrl = window.location.origin + window.location.pathname.replace(/index\.html$/, '');
+                const shareText = `I just became Founder #${idStr} of the Indian Rational Congress 🤟 The future doesn't wait. Neither do we. Join → `;
+                const shareUrl = siteUrl;
+
+                document.getElementById('shareWhatsApp').href =
+                    'https://wa.me/?text=' + encodeURIComponent(shareText + shareUrl);
+                document.getElementById('shareTwitter').href =
+                    'https://twitter.com/intent/tweet?text=' +
+                    encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+
                 document.getElementById('successOverlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
                 if (submitBtn) submitBtn.disabled = false;
             };
 
-            // Submit to backend if available; fall back to local-only otherwise.
             if (window.IRC && window.IRC.submitSignup) {
                 window.IRC.submitSignup({
                     name, city, fix_first: fix,
                     contribution, whatsapp_optin: whatsappOptin
                 })
-                .then(() => window.IRC.fetchCount())
-                .then((newCount) => {
-                    applyLiveCount(newCount);
-                    finalize(newCount);
+                .then((founderId) => {
+                    // founderId = the auto-assigned bigserial primary key
+                    return window.IRC.fetchCount().then((newCount) => {
+                        applyLiveCount(newCount);
+                        finalize(founderId || newCount);
+                    });
                 })
                 .catch((err) => {
                     console.warn('[IRC] signup failed, falling back to local:', err);
@@ -802,8 +931,61 @@
 
         function closeSuccess() {
             document.getElementById('successOverlay').classList.remove('active');
+            document.body.style.overflow = '';
             document.getElementById('signupForm').reset();
         }
+
+        // Wire share-row buttons (copy + download). The WhatsApp/Twitter
+        // hrefs are set per-signup in finalize() above.
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyBtn = document.getElementById('shareCopyLink');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    const id = document.getElementById('founderIdNumber').textContent;
+                    const url = window.location.origin + window.location.pathname.replace(/index\.html$/, '');
+                    const text = `I just became Founder ${id} of the Indian Rational Congress 🤟 Join → ${url}`;
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            const original = copyBtn.querySelector('span').textContent;
+                            copyBtn.querySelector('span').textContent = 'Copied!';
+                            setTimeout(() => { copyBtn.querySelector('span').textContent = original; }, 1500);
+                        });
+                    }
+                });
+            }
+
+            const dlBtn = document.getElementById('shareDownload');
+            if (dlBtn) {
+                dlBtn.addEventListener('click', async () => {
+                    if (typeof html2canvas === 'undefined') {
+                        alert('Loading… try again in a second.');
+                        return;
+                    }
+                    const card = document.getElementById('founderIdCard');
+                    if (!card) return;
+                    const original = dlBtn.querySelector('span').textContent;
+                    dlBtn.querySelector('span').textContent = 'Generating…';
+                    try {
+                        const canvas = await html2canvas(card, {
+                            backgroundColor: '#0a0a0a',
+                            scale: 2,
+                            useCORS: true,
+                            logging: false
+                        });
+                        const link = document.createElement('a');
+                        const id = document.getElementById('founderIdNumber').textContent.replace('#', '');
+                        link.download = `IRC-Founder-${id}.png`;
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                    } catch (err) {
+                        console.error('download failed:', err);
+                        alert('Download failed. Try a screenshot instead.');
+                    } finally {
+                        dlBtn.querySelector('span').textContent = original;
+                    }
+                });
+            }
+        });
 
         // On mobile, "Join" buttons should scroll to the form card,
         // not the top of the section (which shows the "uncles" text first).

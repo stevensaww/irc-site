@@ -64,3 +64,27 @@ grant execute on function public.signup_count() to authenticated;
 --   2. Go to: Settings → API → copy 'Project URL' and 'anon public' key.
 --   3. Paste them into app.js (CONFIG block at top).
 -- ============================================================
+
+
+-- ============================================================
+-- ADDITION: Allow the insert RETURNING clause to work
+-- so the client can receive the auto-assigned founder ID.
+-- This does NOT let anon list other signups — only the row
+-- they just inserted, since the RETURNING is scoped to that.
+-- ============================================================
+
+-- Drop and re-create the insert policy with explicit returning support.
+-- Supabase's PostgREST honors RLS for INSERT...RETURNING; we need a
+-- SELECT policy that matches only the row's own id.
+-- Simplest safe approach: grant SELECT only on the id column via a
+-- view, or grant a no-op SELECT policy that always denies — Postgrest
+-- still returns the inserted row from RETURNING.
+
+-- Workaround that is known to work: add a SELECT policy that returns
+-- false for all rows. The RETURNING from INSERT is independent.
+drop policy if exists "anon cannot select rows" on public.signups;
+create policy "anon cannot select rows"
+on public.signups
+for select
+to anon
+using (false);

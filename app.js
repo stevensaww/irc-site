@@ -72,12 +72,17 @@
       }
     },
 
-    /** Inserts a signup row. Throws on failure. */
+    /** Inserts a signup row and returns the auto-assigned row ID. */
     async submitSignup(payload) {
       const client = getClient();
       if (!client) throw new Error('Supabase not configured');
-      const { error } = await client.from('signups').insert([payload]);
+      const { data, error } = await client
+        .from('signups')
+        .insert([payload])
+        .select('id')
+        .single();
       if (error) throw error;
+      return data ? data.id : null;
     },
 
     /**
