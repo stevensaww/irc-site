@@ -7625,3 +7625,37 @@ footer {
         padding: 12rem 0.6rem 2rem 0.6rem !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE FIX — KILL DESKTOP CARD TRANSFORMS
+   On desktop the co-founder card uses translateY(-60px) +
+   negative margin-bottom to overlap the unified card. That
+   pulls it under the nav bar on mobile and creates the
+   "shifted right / clipped at top" effect. Reset on small
+   screens.
+   ============================================================ */
+@media (max-width: 1024px) {
+    .hero-glass-dashboard-card.main-dashboard,
+    .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
+        transform: none !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+    /* Unified top card: kill any desktop transforms / negative margins
+       that could cause the top edge to clip behind the nav. */
+    .unified-top-card {
+        transform: none !important;
+        margin-top: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Hero already gives padding-top of 11rem; ensure the cards sit
+       inside it with their own zero top margin. */
+}
