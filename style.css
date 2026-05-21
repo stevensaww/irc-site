@@ -7574,72 +7574,49 @@ footer {
 
 
 /* ============================================================
-   MOBILE: HERO PADDING + CARD CENTERING
-   Two targeted fixes only. Desktop untouched.
-   ============================================================ */
-
-/* 1. The hero inline style="padding-top:8rem" is too short for
-      the two-row mobile nav (~134px). Bump to 10rem (160px). */
-@media (max-width: 1024px) {
-    .hero.section-gloomy {
-        padding-top: 10rem !important;
-    }
-}
-
-/* 2. Co-founder card: the desktop translateY(-60px) + margin-bottom:-40px
-      pulls it off-center on mobile. Reset those only. */
-@media (max-width: 1024px) {
-    .hero-glass-dashboard-card.main-dashboard {
-        transform: none !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: calc(100% - 0px) !important;
-        max-width: 100% !important;
-    }
-
-    /* After unified card collapses, same reset */
-    .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
-        transform: none !important;
-        margin-top: 1rem !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* Unified card: lift the 500px height cap so content isn't clipped */
-    .hero-glass-dashboard-card.unified-top-card {
-        max-height: none !important;
-        overflow: visible !important;
-    }
-}
-
-
-/* ============================================================
-   MOBILE: HERO CARD WIDTH + CO-FOUNDER POSITION FIX
-   On mobile, 97% of viewport overflows the hero's own padding.
-   Cards must be 100% of the hero's content box, not the viewport.
+   MOBILE: HERO LAYOUT — FINAL
+   Single source of truth. Desktop (>1024px) untouched.
    ============================================================ */
 @media (max-width: 1024px) {
-    /* Give the hero consistent side padding so cards have a container */
+    /* Stop the page from being shifted right by overflowing children */
+    html, body {
+        overflow-x: hidden !important;
+    }
+
+    /* Hero: enough top padding for the 2-row nav, symmetric sides,
+       no extra gap between cards (would make co-founder sit too low). */
     .hero.section-gloomy {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding: 10rem 1rem 3rem 1rem !important;
+        gap: 1rem !important;
         box-sizing: border-box !important;
+        align-items: stretch !important;  /* full-width cards */
     }
 
-    /* Cards fill the hero's content box exactly — no viewport % */
+    /* Both cards: identical width = hero content box, no margins */
     .unified-top-card,
+    .hero-glass-dashboard-card.unified-top-card,
     .hero-glass-dashboard-card.main-dashboard {
         width: 100% !important;
         max-width: 100% !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
     }
 
-    /* Co-founder card: after transition, sits right at top of content area */
+    /* Unified card: keep overflow:hidden (desktop default) so absolute
+       watermarks don't leak past the right edge and cause horizontal
+       scroll. Just lift the 500px height cap so stacked content fits. */
+    .hero-glass-dashboard-card.unified-top-card {
+        max-height: none !important;
+        overflow: hidden !important;
+    }
+
+    /* After unified card collapses (phase-3), co-founder card sits
+       directly below with normal flex gap — no extra margin-top. */
     .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
-        margin-top: 0 !important;
+        transform: none !important;
+        margin: 0 !important;
     }
 }
