@@ -7613,3 +7613,33 @@ footer {
         overflow: visible !important;
     }
 }
+
+
+/* ============================================================
+   MOBILE: HERO CARD WIDTH + CO-FOUNDER POSITION FIX
+   On mobile, 97% of viewport overflows the hero's own padding.
+   Cards must be 100% of the hero's content box, not the viewport.
+   ============================================================ */
+@media (max-width: 1024px) {
+    /* Give the hero consistent side padding so cards have a container */
+    .hero.section-gloomy {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Cards fill the hero's content box exactly — no viewport % */
+    .unified-top-card,
+    .hero-glass-dashboard-card.main-dashboard {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Co-founder card: after transition, sits right at top of content area */
+    .unified-top-card.transition-phase-3 ~ .hero-glass-dashboard-card.main-dashboard {
+        margin-top: 0 !important;
+    }
+}
